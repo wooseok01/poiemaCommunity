@@ -1,0 +1,183 @@
+html{
+    width : 100%;
+    height : 100%;
+}
+
+body{
+    width : 1200px;
+    height : 100%;
+    margin : 0 auto;
+}
+
+select{
+    width : 100%;
+    height : 100%;
+    font-size : 20px;
+    font-weight : bold;
+    border: none;
+}
+
+option{
+    font-size : 20px;
+}
+
+.colorTd{
+    width : 100px;
+}
+
+.colorTdSecond{
+    width : 120px;
+}
+
+.hTd{
+    height : 45px;
+}
+
+.red{
+    background-color: rgb(56,121,217);
+    color : white;
+}
+
+.blue{
+    background-color : rgb(227,244,228);
+}
+
+.pink{
+    background-color : rgb(254,225,225);
+}
+
+.secondTd{
+    width : 100px;
+}
+
+.whiteTd{
+    width : 200px;
+}
+
+table{
+    width : 1200px;
+    height: 100%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#headerTable{
+    width : 210px;
+    height : 50px;
+    text-align: center;
+}
+
+table > tr{
+    border : 1px solid black;
+}
+
+form{
+    width : 100%;
+    height : 100%;
+    margin-top : 50px;
+}
+
+#firstTable{
+    height : 100px;
+    margin-bottom : 20px;
+    text-align:center;
+}
+
+#title{
+    width : 500px;
+    text-align : center;
+    margin : 0 auto;
+    margin-left : 175px;
+    font-size : 40px;
+    background-color: rgb(236,216,235);
+    font-weight: bold;
+}
+
+#firstTable > div{
+    width : 100%;
+    height : 100px;
+    padding-top : 50px;
+}
+
+#firstTable > div > table,
+#firstTable > div > h1{
+    float : left;
+}
+
+#secondTable{
+    height : 50px;
+    margin-bottom : 20px;
+}
+
+#secondTable > table{
+    height : 100%;
+    text-align:center;
+}
+
+#thirdTable{
+    height : 50px;
+    margin-bottom : 20px;
+    text-align:center;
+}
+
+#fourthTable{
+    height : 100px;
+    margin-bottom : 20px;
+    text-align:center;
+}
+
+#fifthTable{
+    height : 250px;
+    margin-bottom : 20px;
+    text-align:center;
+}
+
+#sixthTable{
+    height : 250px;
+    margin-bottom : 20px;
+    text-align:center;
+}
+
+#seventhTable{
+    height : 250px;
+    margin-bottom : 50px;
+    text-align:center;
+}
+
+#buttonContainer{
+    width : 100%;
+    height : 100px;
+}
+
+#buttonContainer > div{
+    width : 50%;
+    height : 100%;
+    margin : 0 auto;
+}
+
+#buttonContainer > div > div{
+    float : left;
+    width : 100px;
+    height : 50px;
+    margin : 0 auto;
+    margin-left : 25px;
+}
+
+#submitButton,
+#deleteButton,
+#printButton{
+    width : 100px;
+    margin : 0 auto;
+    margin-bottom : 50px;
+}
+
+#pay{
+    width : 80%;
+}
+
+input{
+    width : 100%;
+    height : 100%;
+}
+
+
