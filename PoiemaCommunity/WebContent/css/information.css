@@ -4,8 +4,8 @@ html{
 }
 
 body{
-    width : 1200px;
-    height : 100%;
+    width : 28cm;
+    height : 42cm;
     margin : 0 auto;
 }
 
@@ -22,8 +22,45 @@ option{
 }
 
 .colorTd{
-    width : 100px;
+    width : 3cm;
 }
+
+.secondTd{
+    width : 3cm;
+}
+
+.textAreaTd{
+    width : 26cm;
+}
+
+textarea{
+    width : 100%;
+    height : 100%;
+    resize : none;
+    font-size : 20px;
+    border : none;
+}
+
+.whiteTd{
+    width : 7cm;
+}
+
+.thirdWhiteTd{
+    width : 5cm;
+}
+
+.collspanTd{
+    width : 8cm;
+}
+
+.smallTd{
+    width : 9cm;
+}
+
+.secondWhiteTd{
+    width : 17cm;
+}
+
 
 .colorTdSecond{
     width : 120px;
@@ -50,15 +87,16 @@ option{
     width : 100px;
 }
 
-.whiteTd{
-    width : 200px;
-}
-
 table{
-    width : 1200px;
+    width : 100%;
     height: 100%;
     font-weight: bold;
     font-size: 18px;
+    border-collapse: collapse;
+}
+
+table,td{
+    border : 1px solid black;
 }
 
 #headerTable{
@@ -87,7 +125,7 @@ form{
     width : 500px;
     text-align : center;
     margin : 0 auto;
-    margin-left : 175px;
+    margin-left : 140px;
     font-size : 40px;
     font-weight: bold;
 }
@@ -149,16 +187,14 @@ form{
 }
 
 #buttonContainer > div{
-    width : 50%;
+    width : 100%;
     height : 100%;
-    margin : 0 auto;
 }
 
 #buttonContainer > div > div{
     float : left;
     width : 100px;
     height : 50px;
-    margin : 0 auto;
     margin-left : 25px;
 }
 
@@ -170,13 +206,26 @@ form{
     margin-bottom : 50px;
 }
 
+#submitButton > input,
+#deleteButton > input,
+#printButton > input{
+    background-color : rgba(12,143,187,0.5);
+    border: none;
+    color : white;
+    border-radius : 10px;
+}
+
 #pay{
-    width : 80%;
+    width : 70%;
+    text-align : right;
 }
 
 input{
     width : 100%;
     height : 100%;
+    font-size : 20px;
+    padding-left : 5px;
+    border : none;
 }
 
 
