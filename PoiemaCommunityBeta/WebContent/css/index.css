@@ -41,3 +41,7 @@ input:-moz-placeholder {
     font-size: 25px;
 }
 
+img{
+    width : 100%;
+}
+

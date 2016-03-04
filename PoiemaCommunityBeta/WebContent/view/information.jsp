@@ -18,6 +18,7 @@
               <select>
                 <option value="A">A</option>
                 <option value="B">B</option>
+                <option value="C">C</option>
               </select>
             </td>
           </tr>
@@ -54,12 +55,12 @@
   
   <table id="fourthTable">
     <tr>
-      <td class="colorTd blue">분류번호</td>
+      <td class="colorTd blue">생활구분</td>
       <td class="thirdWhiteTd">
         <select>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+          <option value="high">상</option>
+          <option value="mid">중</option>
+          <option value="low">하</option>
         </select>
       </td>
       <td class="colorTd blue">성별</td>
@@ -84,13 +85,34 @@
         <select>
           <option value="month">월세</option>
           <option value="year">전세</option>
+          <option value="free">무상임대</option>
           <option value="own">자가</option>
         </select>
       </td>
       <td class="colorTd blue">보호구분</td>
-      <td colspan="2" class="collspanTd"><input type="text"></td>
+      <td colspan="2" class="collspanTd">
+        <select>
+          <option value="1">수급권</option>
+          <option value="2">차상위</option>
+          <option value="3">장애인</option>
+          <option value="4">저소득</option>
+          <option value="5">기 타</option>
+        </select>
+      </td>
       <td class="colorTd blue">세대구분</td>
-      <td colspan="2" class="collspanTd"><input type="text"></td>
+      <td colspan="2" class="collspanTd">
+        <select>
+          <option val="1">독거</option>
+          <option val="2">독거노인</option>
+          <option val="3">노인부부</option>
+          <option val="4">한부모</option>
+          <option val="5">조손가정</option>
+          <option val="6">다문화</option>
+          <option val="7">소년,소녀 가장</option>
+          <option val="8">새터민</option>
+          <option val="9">일반가정</option>
+        </select>
+      </td>
     </tr>
   </table>
   
@@ -109,7 +131,12 @@
       <td><input type="text"></td>
       <td><input type="text"></td>
       <td><input type="text"></td>
-      <td><input type="text"></td>
+      <td>
+        <select>
+          <option val="1">동거</option>
+          <option val="2">비동거</option>
+        </select>
+      </td>
       <td><input type="text"></td>
     </tr>
     <tr>
@@ -155,7 +182,7 @@
   
   <table id="seventhTable">
     <tr>
-      <td class="colorTd pink">중   점 <br>관리사항</td>
+      <td class="colorTd pink">상담내역</td>
       <td><textarea ></textarea></td>
     </tr>
   </table>
