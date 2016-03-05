@@ -11,9 +11,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.ibatis.common.resources.Resources;
-
-import Dao.HelpListDao;
-import Dao.UserDao;
 public class MybatisSessionFactory extends HttpServlet {
 	private static SqlSessionFactory sqlSessionFactory;
 

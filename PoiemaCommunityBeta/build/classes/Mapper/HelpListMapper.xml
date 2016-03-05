@@ -2,5 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
 <mapper namespace="Dao.HelpListDaoInterface">
-
+	
+	<insert id="save" parameterType="HelpList">
+		INSERT INTO helpList(
+			type, 
+			volunteer, volunteerTel, applicant, applicantTel, 
+			target, targetTel, address, 
+			livingCase, sex, age, startMonth, payMonth,
+			pay, house, protection, generation,
+			houseDescription, consultDescription
+		) values(
+			#{type}, 
+			#{volunteer}, #{volunteerTel}, #{applicant}, #{applicantTel}, 
+			#{target}, #{targetTel}, #{address}, 
+			#{livingCase}, #{sex}, #{age}, #{startMonth}, #{payMonth}, 
+			#{pay}, #{house}, #{protection}, #{generation}, 
+			#{houseDescription}, #{consultDescription} 
+		);
+	</insert>
+	
+	<select id="getRecentHelpSeq" parameterType="HelpList" resultType="int">
+		SELECT seq FROM helpList 
+		<where>
+			type = #{type} AND 
+			volunteer = #{volunteer} AND volunteerTel = #{volunteerTel} AND 
+			applicant = #{applicant} AND applicantTel = #{applicantTel} AND 
+			target = #{target} AND targetTel = #{targetTel} AND address = #{address} AND 
+			livingCase = #{livingCase} AND sex = #{sex} AND age = #{age} AND 
+			startMonth = #{startMonth} AND payMonth = #{payMonth} AND 
+			pay = #{pay} AND house = #{house} AND protection = #{protection} AND 
+			generation = #{generation}
+		</where>
+	</select>
+	
+	<insert id="insertFamilyList" parameterType="Family">
+		INSERT INTO house (
+			helpList_seq, relation, famName, age, job, liveWith, etc
+		) values (
+			#{helpListSeq}, #{relation}, #{famName}, #{age}, 
+			#{job}, #{liveWith}, #{etc}
+		);
+	</insert>
+	
 </mapper>

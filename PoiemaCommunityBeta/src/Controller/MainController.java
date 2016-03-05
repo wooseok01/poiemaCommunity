@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Action.HelpListAction;
 import Action.LoginOutAction;
 
 /**
@@ -40,7 +41,7 @@ public class MainController extends HttpServlet {
 		controller(request, response);
 	}
 	
-public void controller(HttpServletRequest request, HttpServletResponse response){
+	public void controller(HttpServletRequest request, HttpServletResponse response){
 		
 		String url = request.getRequestURI();
 		String path = url.substring((request.getContextPath()+"/main").length(), url.length());
@@ -48,11 +49,15 @@ public void controller(HttpServletRequest request, HttpServletResponse response)
 		System.out.println(path);
 		
 		LoginOutAction loginOutAction = new LoginOutAction();
+		HelpListAction helpListAction = new HelpListAction();
 		
 		try{
 			if(path.equals("/login")){
 				System.out.println("login Page!");
 				loginOutAction.loginCheck(request, response);
+			}else if(path.equals("/save")){
+				System.out.println("data save!");
+				helpListAction.save(request, response);
 			}else{
 				
 			}

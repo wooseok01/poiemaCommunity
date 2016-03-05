@@ -1,21 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>사랑의물품 대상자 신상명세</title>
+
 <link rel="stylesheet" href="../css/information.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 <body>
-  <form action="/save" method="post">
+  <form action="../main/save" method="post">
     <div id="firstTable">
       <div>
         <table id="headerTable">
           <tr>
             <td class="colorTd red">유형</td>
             <td class="secondTd">
-              <select>
+              <select name="type">
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -30,14 +33,14 @@
   <div id="secondTable">
     <table id="firstLine">
       <tr>
+        <td class="label colorTd blue">전달봉사자</td>
+        <td class="whiteTd"><input type="text" name="volunteer"></td>
+        <td class="label colorTd blue">연락처</td>
+        <td class="whiteTd"><input type="tel" name="volunteerTel"></td>
         <td class="label colorTd blue">신청인</td>
-        <td class="whiteTd"><input type="text" name="servePerson"></td>
+        <td class="whiteTd"><input type="text" name="applicant"></td>
         <td class="label colorTd blue">연락처</td>
-        <td class="whiteTd"><input type="tel" name="servePhone"></td>
-        <td class="label colorTd blue">봉사자</td>
-        <td class="whiteTd"><input type="text" name="deliverPerson"></td>
-        <td class="label colorTd blue">연락처</td>
-        <td class="whiteTd"><input type="tel" name="deliverPhone"></td>
+        <td class="whiteTd"><input type="tel" name="applicantTel"></td>
       </tr>
     </table>
   </div>
@@ -45,11 +48,11 @@
   <table id="thirdTable">
     <tr>
       <td class="label colorTd blue">대상자</td>
-      <td class="whiteTd"><input type="text" name="receivePerson"></td>
+      <td class="whiteTd"><input type="text" name="target"></td>
       <td class="label colorTd blue">연락처</td>
-      <td class="whiteTd"><input type="text" name="receivePhone"></td>
+      <td class="whiteTd"><input type="text" name="targetTel"></td>
       <td class="label colorTd blue">주 소</td>
-      <td class="secondWhiteTd"><input type="text" name="receiveAddress"></td>
+      <td class="secondWhiteTd"><input type="text" name="address"></td>
     </tr>
   </table>
   
@@ -57,7 +60,7 @@
     <tr>
       <td class="colorTd blue">생활구분</td>
       <td class="thirdWhiteTd">
-        <select>
+        <select name="livingCase">
           <option value="high">상</option>
           <option value="mid">중</option>
           <option value="low">하</option>
@@ -65,24 +68,24 @@
       </td>
       <td class="colorTd blue">성별</td>
       <td class="thirdWhiteTd">
-        <select>
+        <select name="sex">
           <option value="F">여자</option>
           <option value="M">남자</option>
         </select>
       </td>
       <td class="colorTd blue">나이</td>
-      <td class="thirdWhiteTd"><input type="text"></td>
+      <td class="thirdWhiteTd"><input type="text" name="age"></td>
       <td class="colorTd blue">신청월</td>
-      <td class="thirdWhiteTd"></td>
+      <td class="thirdWhiteTd"><input type="text" class="datePicker" name="startMonth"></td>
       <td class="colorTd blue">지급월</td>
-      <td class="thirdWhiteTd"></td>
+      <td class="thirdWhiteTd"><input type="text" class="datePicker" name="payMonth"></td>
     </tr>
     <tr>
       <td class="colorTd blue">수입</td>
-      <td class="thirdWhiteTd"><input type="text" id="pay">만원</td>
+      <td class="thirdWhiteTd"><input type="text" id="pay" name="pay">만원</td>
       <td class="colorTd blue">주거사항</td>
       <td class="thirdWhiteTd">
-        <select>
+        <select name="house">
           <option value="month">월세</option>
           <option value="year">전세</option>
           <option value="free">무상임대</option>
@@ -91,7 +94,7 @@
       </td>
       <td class="colorTd blue">보호구분</td>
       <td colspan="2" class="collspanTd">
-        <select>
+        <select name="protection">
           <option value="1">수급권</option>
           <option value="2">차상위</option>
           <option value="3">장애인</option>
@@ -101,16 +104,16 @@
       </td>
       <td class="colorTd blue">세대구분</td>
       <td colspan="2" class="collspanTd">
-        <select>
-          <option val="1">독거</option>
-          <option val="2">독거노인</option>
-          <option val="3">노인부부</option>
-          <option val="4">한부모</option>
-          <option val="5">조손가정</option>
-          <option val="6">다문화</option>
-          <option val="7">소년,소녀 가장</option>
-          <option val="8">새터민</option>
-          <option val="9">일반가정</option>
+        <select name="generation">
+          <option value="1">독거</option>
+          <option value="2">독거노인</option>
+          <option value="3">노인부부</option>
+          <option value="4">한부모</option>
+          <option value="5">조손가정</option>
+          <option value="6">다문화</option>
+          <option value="7">소년,소녀 가장</option>
+          <option value="8">새터민</option>
+          <option value="9">일반가정</option>
         </select>
       </td>
     </tr>
@@ -127,63 +130,83 @@
       <td class="blue hTd">기 타<br>(건강상태, 장애 등)</td>
     </tr>
     <tr>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
+      <td><input type="text" name="relation1"></td>
+      <td><input type="text" name="famName1"></td>
+      <td><input type="text" name="age1"></td>
+      <td><input type="text" name="job1"></td>
       <td>
-        <select>
-          <option val="1">동거</option>
-          <option val="2">비동거</option>
+        <select name="liveWith1">
+          <option value="1">동거</option>
+          <option value="2">비동거</option>
         </select>
       </td>
-      <td><input type="text"></td>
+      <td><input type="text" name="etc1"></td>
     </tr>
     <tr>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
+      <td><input type="text" name="relation2"></td>
+      <td><input type="text" name="famName2"></td>
+      <td><input type="text" name="age2"></td>
+      <td><input type="text" name="job2"></td>
+      <td>
+        <select name="liveWith2">
+          <option value="1">동거</option>
+          <option value="2">비동거</option>
+        </select>
+      </td>
+      <td><input type="text" name="etc2"></td>
     </tr>
     <tr>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
+      <td><input type="text" name="relation3"></td>
+      <td><input type="text" name="famName3"></td>
+      <td><input type="text" name="age3"></td>
+      <td><input type="text" name="job3"></td>
+      <td>
+        <select name="liveWith3">
+          <option value="1">동거</option>
+          <option value="2">비동거</option>
+        </select>
+      </td>
+      <td><input type="text" name="etc3"></td>
     </tr>
     <tr>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
+      <td><input type="text" name="relation4"></td>
+      <td><input type="text" name="famName4"></td>
+      <td><input type="text" name="age4"></td>
+      <td><input type="text" name="job4"></td>
+      <td>
+        <select name="liveWith4">
+          <option value="1">동거</option>
+          <option value="2">비동거</option>
+        </select>
+      </td>
+      <td><input type="text" name="etc4"></td>
     </tr>
     <tr>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
+      <td><input type="text" name="relation5"></td>
+      <td><input type="text" name="famName5"></td>
+      <td><input type="text" name="age5"></td>
+      <td><input type="text" name="job5"></td>
+      <td>
+        <select name="liveWith5">
+          <option value="1">동거</option>
+          <option value="2">비동거</option>
+        </select>
+      </td>
+      <td><input type="text" name="etc5"></td>
     </tr>
   </table>
   
   <table id="sixthTable">
     <tr>
       <td class="colorTd pink">생 활 사</td>
-      <td class="textAreaTd"><textarea></textarea></td>
+      <td class="textAreaTd"><textarea name="houseDescription"></textarea></td>
     </tr>
   </table>
   
   <table id="seventhTable">
     <tr>
       <td class="colorTd pink">상담내역</td>
-      <td><textarea ></textarea></td>
+      <td><textarea name="consultDescription"></textarea></td>
     </tr>
   </table>
   
@@ -192,8 +215,8 @@
       <div id="submitButton">
         <input type="submit" value="저 장">
       </div>
-      <div id="deleteButton">
-        <input type="button" value="삭 제">
+      <div id="cancelButton">
+        <input type="button" value="취 소">
       </div>
       <div id="printButton">
         <input type="button" value="인 쇄">
@@ -201,5 +224,9 @@
     </div>
   </div>
   </form>
+  
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../js/information.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <title>포이에마 사회봉사부 로그인 </title>
 <script type="text/javascript">
 	$(document).ready(function(){
-		if($('#errorTag') != undefined){
+		if($('#errorTag').html() == 1){
 			alert('login Fail! Try again!');
 		}
 	});
@@ -18,7 +18,7 @@
 </head>
 <body>
   <c:if test="${errorTag eq 1 }">
-    <p id="errorTag"></p>  
+    <p id="errorTag">${errorTag}</p>  
   </c:if>
   <h1>포이에마 사회봉사부</h1>
   <form action="../main/login" method="post">

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Date;
 
 public class HelpList implements Serializable{
+	private int seq;
+	private String type;
 	private String volunteer;
 	private String volunteerTel;
 	private String applicant;
@@ -16,14 +18,22 @@ public class HelpList implements Serializable{
 	private int age;
 	private Date startMonth;
 	private Date payMonth;
+	private int pay;
+	private String house;
+	private String protection;
+	private String generation;
 	private String houseDescription;
 	private String consultDescription;
 	
 	public HelpList(){}
-
-	public HelpList(String volunteer, String volunteerTel, String applicant, String applicantTel, String target,
-			String targetTel, String address, String livingCase, String sex, int age, Date startMonth, Date payMonth,
-			String houseDescription, String consultDescription) {
+	
+	public HelpList(int seq, String type, String volunteer, String volunteerTel, String applicant, String applicantTel,
+			String target, String targetTel, String address, String livingCase, String sex, int age, Date startMonth,
+			Date payMonth, int pay, String house, String protection, String generation, String houseDescription,
+			String consultDescription) {
+		super();
+		this.seq = seq;
+		this.type = type;
 		this.volunteer = volunteer;
 		this.volunteerTel = volunteerTel;
 		this.applicant = applicant;
@@ -36,9 +46,31 @@ public class HelpList implements Serializable{
 		this.age = age;
 		this.startMonth = startMonth;
 		this.payMonth = payMonth;
+		this.pay = pay;
+		this.house = house;
+		this.protection = protection;
+		this.generation = generation;
 		this.houseDescription = houseDescription;
 		this.consultDescription = consultDescription;
 	}
+
+	public int getPay() {return pay;}
+	public void setPay(int pay) {this.pay = pay;}
+
+	public String getHouse() {return house;}
+	public void setHouse(String house) {this.house = house;}
+
+	public String getProtection() {return protection;}
+	public void setProtection(String protection) {this.protection = protection;}
+
+	public String getGeneration() {return generation;}
+	public void setGeneration(String generation) {this.generation = generation;}
+
+	public int getSeq() {return seq;}
+	public void setSeq(int seq) {this.seq = seq;}
+
+	public String getType() {return type;}
+	public void setType(String type) {this.type = type;}
 
 	public String getVolunteer() {return volunteer;}
 	public void setVolunteer(String volunteer) {this.volunteer = volunteer;}

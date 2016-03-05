@@ -45,3 +45,6 @@ img{
     width : 100%;
 }
 
+#errorTag{
+    display: none;
+}
