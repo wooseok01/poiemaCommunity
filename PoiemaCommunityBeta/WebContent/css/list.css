@@ -75,3 +75,13 @@ thead > tr > td{
     background-color : rgb(242,242,242);
     text-align : center;
 }
+
+.hidden{
+    display: none;
+}
+
+.target:HOVER{
+    cursor: pointer;
+    text-decoration: underline;
+    color : blue;
+}

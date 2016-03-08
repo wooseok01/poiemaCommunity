@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("UTF-8"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -11,6 +12,11 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 <body>
+  <c:if test="${helpList ne null}">
+    <input type="text" class="hidden" id="type" value="${helpList.type}">
+    <input type="text" class="hidden" id="livingCase" value="${helpList.livingCase}">  
+  </c:if>
+  
   <form action="../main/save" method="post">
     <div id="firstTable">
       <div>
@@ -34,13 +40,49 @@
     <table id="firstLine">
       <tr>
         <td class="label colorTd blue">전달봉사자</td>
-        <td class="whiteTd"><input type="text" name="volunteer"></td>
+        <td class="whiteTd">
+          <c:choose>
+            <c:when test="${helpList ne null}">
+              <input type="text" name="volunteer" value="${helpList.volunteer}">
+            </c:when>
+            <c:otherwise>
+              <input type="text" name="volunteer">
+            </c:otherwise>
+          </c:choose>
+        </td>
         <td class="label colorTd blue">연락처</td>
-        <td class="whiteTd"><input type="tel" name="volunteerTel"></td>
+        <td class="whiteTd">
+          <c:choose>
+            <c:when test="${helpList ne null}">
+              <input type="text" name="volunteerTel" value="${helpList.volunteerTel}">
+            </c:when>
+            <c:otherwise>
+              <input type="text" name="volunteerTel">
+            </c:otherwise>
+          </c:choose>
+        </td>
         <td class="label colorTd blue">신청인</td>
-        <td class="whiteTd"><input type="text" name="applicant"></td>
+        <td class="whiteTd">
+          <c:choose>
+            <c:when test="${helpList ne null}">
+              <input type="text" name="applicant" value="${helpList.applicant}">
+            </c:when>
+            <c:otherwise>
+              <input type="text" name="applicant">
+            </c:otherwise>
+          </c:choose>
+        </td>
         <td class="label colorTd blue">연락처</td>
-        <td class="whiteTd"><input type="tel" name="applicantTel"></td>
+        <td class="whiteTd">
+          <c:choose>
+            <c:when test="${helpList ne null}">
+              <input type="tel" name="applicantTel" value="${helpList.applicantTel}">
+            </c:when>
+            <c:otherwise>
+              <input type="tel" name="applicantTel">
+            </c:otherwise>
+          </c:choose>
+        </td>
       </tr>
     </table>
   </div>
@@ -48,11 +90,39 @@
   <table id="thirdTable">
     <tr>
       <td class="label colorTd blue">대상자</td>
-      <td class="whiteTd"><input type="text" name="target"></td>
+      <td class="whiteTd">
+        <c:choose>
+          <c:when test="${helpList ne null}">
+            <input type="text" name="target" value="${helpList.target}">
+          </c:when>
+          <c:otherwise>
+            <input type="text" name="target">
+          </c:otherwise>
+        </c:choose>
+      </td>
       <td class="label colorTd blue">연락처</td>
-      <td class="whiteTd"><input type="text" name="targetTel"></td>
+      <td class="whiteTd">
+        <c:choose>
+          <c:when test="${helpList ne null}">
+            <input type="text" name="targetTel" value="${helpList.targetTel}">
+          </c:when>
+          <c:otherwise>
+            <input type="text" name="targetTel">
+          </c:otherwise>
+        </c:choose>
+        
+      </td>
       <td class="label colorTd blue">주 소</td>
-      <td class="secondWhiteTd"><input type="text" name="address"></td>
+      <td class="secondWhiteTd">
+        <c:choose>
+          <c:when test="${helpList ne null}">
+            <input type="text" name="address" value="${helpList.address}">
+          </c:when>
+          <c:otherwise>
+            <input type="text" name="address">
+          </c:otherwise>
+        </c:choose>
+      </td>
     </tr>
   </table>
   

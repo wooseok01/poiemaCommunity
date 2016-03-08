@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE>
 <html>
 <head>
@@ -8,12 +10,12 @@
 <link rel="stylesheet" href="../css/list.css">
 </head>
 <body>
-  <form action="/find" method="post">
-    <select>
-      <option>봉사자</option>
-      <option>대상자</option>
+  <form action="../main/find" method="post">
+    <select name="who">
+      <option value="volunteer">봉사자</option>
+      <option value="target">대상자</option>
     </select>
-    <input type="text" placeholder="봉사자나 대상자를 검색하세요." id="searchBox" name="name">
+    <input type="text" placeholder="봉사자나 대상자를 검색하세요." id="searchBox" name="name" value="${query}">
     <input type="submit" value="검 색" id="submitBtn">
   </form>
   
@@ -25,6 +27,7 @@
   <table>
     <thead>
       <tr>
+        <td>체크</td>
         <td>봉사자</td>
         <td>전달자 연락처</td>
         <td>대상자</td>
@@ -35,16 +38,41 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>고석광</td>
-        <td>010-7177-7153</td>
-        <td>김차한</td>
-        <td></td>
-        <td>남</td>
-        <td>74</td>
-        <td>불우가정</td>
-      </tr>
+      <c:choose>
+        <c:when test="${personList ne null}">
+          <c:forEach var="person" items="${personList}">
+          <tr>
+            <td class="hidden">${person.seq}</td>
+            <td class="check"><input type="checkbox"></td>
+            <td>${person.volunteer}</td>
+            <td>${person.volunteerTel}</td>
+            <td class="target">${person.target}</td>
+            <td>${person.targetTel}</td>
+            <td>${person.sex}</td>
+            <td>${person.age}</td>
+            <c:choose>
+              <c:when test="${person.livingCase eq 'high'}">
+                <td>상</td>
+              </c:when>
+              <c:when test="${person.livingCase eq 'mid'}">
+                <td>중</td>
+              </c:when>
+              <c:when test="${person.livingCase eq 'low'}">
+                <td>하</td>
+              </c:when>
+            </c:choose>
+          </tr>
+        </c:forEach>
+        </c:when>
+        <c:otherwise>
+          <tr>
+            <td colspan="8">전달자나 봉사자를 검색해 주세요.</td>
+          </tr>
+        </c:otherwise>
+      </c:choose>
     </tbody>
   </table>
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/list.js"></script>
 </body>
 </html>

@@ -46,7 +46,14 @@ public class MainController extends HttpServlet {
 			}else if(path.equals("/save")){
 				System.out.println("data save!");
 				helpListAction.save(request, response);
-			}else{
+			}else if(path.equals("/find")){
+				System.out.println("find query!");
+				helpListAction.find(request, response);
+			}else if(path.equals("/detail")){
+				System.out.println("detail page!");
+				helpListAction.detail(request, response);
+			}
+			else{
 				
 			}
 		}catch(Exception e){e.printStackTrace();}

@@ -34,4 +34,33 @@
 		);
 	</insert>
 	
+	<select id="find" parameterType="hashmap" resultType="HelpList">
+		SELECT seq, volunteer, volunteerTel, target, targetTel, 
+				sex, age, livingCase FROM helpList 
+		<where>
+			<choose>
+				<when test="who eq 'volunteer'.toString()">
+					volunteer = #{name}
+				</when>
+				<when test="who eq 'target'.toString()">
+					volunteer = #{name}
+				</when>
+			</choose>
+		</where>
+	</select>
+	
+	<select id="findOne" parameterType="int" resultType="HelpList">
+		SELECT * FROM helpList 
+		<where>
+			seq = #{id}
+		</where>
+	</select>
+	
+	<select id="findFamily" parameterType="int" resultType="Family">
+		SELECT * FROM house 
+		<where>
+			helpList_seq = #{id}
+		</where>
+	</select>
+	
 </mapper>

@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +22,7 @@ public class HelpListAction {
 		helpListDao = new HelpListDao();
 	}
 	
-	public void save(HttpServletRequest request, HttpServletResponse response) {
+	public void save(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
 		HelpList helpList = setRequestParameter(request);
 		helpListDao.save(helpList);
@@ -32,6 +33,8 @@ public class HelpListAction {
 			int helpSeq = helpListDao.getRecentHelpSeq();
 			helpListDao.insertFamilyList(familyList, helpSeq);
 		}
+		
+		response.sendRedirect(request.getContextPath()+"/view/list.jsp");
 		
 	}
 	
@@ -104,7 +107,36 @@ public class HelpListAction {
 				}
 			}
 		}
-		
 		return familyList;
 	}
+
+	public void find(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		request.setCharacterEncoding("UTF-8");
+		
+		String name = request.getParameter("name");
+		String who = request.getParameter("who");
+		
+		System.out.println(name);
+		System.out.println(who);
+		
+		ArrayList<HelpList> personList = helpListDao.find(name, who);
+		System.out.println(personList);
+		request.setAttribute("personList", personList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/list.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	public void detail(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		int id = Integer.parseInt(request.getParameter("id"));
+		HelpList helpList = helpListDao.findOne(id);
+		ArrayList<Family> familyList = helpListDao.findFamily(id);
+		
+		request.setAttribute("helpList", helpList);
+		request.setAttribute("familyList", familyList);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/information.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	
 }
