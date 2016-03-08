@@ -21,25 +21,15 @@
 		);
 	</insert>
 	
-	<select id="getRecentHelpSeq" parameterType="HelpList" resultType="int">
-		SELECT seq FROM helpList 
-		<where>
-			type = #{type} AND 
-			volunteer = #{volunteer} AND volunteerTel = #{volunteerTel} AND 
-			applicant = #{applicant} AND applicantTel = #{applicantTel} AND 
-			target = #{target} AND targetTel = #{targetTel} AND address = #{address} AND 
-			livingCase = #{livingCase} AND sex = #{sex} AND age = #{age} AND 
-			startMonth = #{startMonth} AND payMonth = #{payMonth} AND 
-			pay = #{pay} AND house = #{house} AND protection = #{protection} AND 
-			generation = #{generation}
-		</where>
+	<select id="getRecentHelpSeq" resultType="int">
+		SELECT max(seq) FROM helpList;
 	</select>
 	
 	<insert id="insertFamilyList" parameterType="Family">
 		INSERT INTO house (
 			helpList_seq, relation, famName, age, job, liveWith, etc
 		) values (
-			#{helpListSeq}, #{relation}, #{famName}, #{age}, 
+			#{helpSeq}, #{relation}, #{famName}, #{age}, 
 			#{job}, #{liveWith}, #{etc}
 		);
 	</insert>

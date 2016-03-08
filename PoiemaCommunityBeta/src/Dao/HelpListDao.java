@@ -25,9 +25,8 @@ public class HelpListDao {
 		helpListMapper.save(helpList);
 	}
 
-	public int getRecentHelpSeq(HelpList helpList) {
-		
-		return helpListMapper.getRecentHelpSeq(helpList);
+	public int getRecentHelpSeq() {
+		return helpListMapper.getRecentHelpSeq();
 	}
 
 	public void insertFamilyList(ArrayList<Family> familyList, int helpSeq) {

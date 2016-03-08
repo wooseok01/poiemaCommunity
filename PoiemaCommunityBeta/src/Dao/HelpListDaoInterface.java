@@ -6,7 +6,7 @@ import Model.HelpList;
 public interface HelpListDaoInterface {
 
 	void save(HelpList helpList);
-	int getRecentHelpSeq(HelpList helpList);
+	int getRecentHelpSeq();
 	void insertFamilyList(Family family);
 
 }

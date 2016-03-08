@@ -113,8 +113,16 @@ public class HelpList implements Serializable{
 
 	public String getConsultDescription() {return consultDescription;}
 	public void setConsultDescription(String consultDescription) {this.consultDescription = consultDescription;}
-	
-	
+
+	@Override
+	public String toString() {
+		return "HelpList [seq=" + seq + ", type=" + type + ", volunteer=" + volunteer + ", volunteerTel=" + volunteerTel
+				+ ", applicant=" + applicant + ", applicantTel=" + applicantTel + ", target=" + target + ", targetTel="
+				+ targetTel + ", address=" + address + ", livingCase=" + livingCase + ", sex=" + sex + ", age=" + age
+				+ ", startMonth=" + startMonth + ", payMonth=" + payMonth + ", pay=" + pay + ", house=" + house
+				+ ", protection=" + protection + ", generation=" + generation + ", houseDescription=" + houseDescription
+				+ ", consultDescription=" + consultDescription + "]";
+	}
 	
 
 }

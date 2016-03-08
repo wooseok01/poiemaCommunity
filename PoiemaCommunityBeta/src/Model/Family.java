@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Family implements Serializable{
 	private int helpSeq;
 	private String relation;
-	private String name;
+	private String famName;
 	private int age;
 	private String job;
 	private String liveWith;
@@ -13,20 +13,20 @@ public class Family implements Serializable{
 	
 	public Family(){}
 
-	public Family(int helpSeq, String relation, String name, int age, String job, String liveWith, String etc) {
+	public Family(int helpSeq, String relation, String famName, int age, String job, String liveWith, String etc) {
 		this.helpSeq = helpSeq;
 		this.relation = relation;
-		this.name = name;
+		this.famName = famName;
 		this.age = age;
 		this.job = job;
 		this.liveWith = liveWith;
 		this.etc = etc;
 	}
 	
-	public Family(String relation, String name, int age, String job, String liveWith, String etc) {
+	public Family(String relation, String famName, int age, String job, String liveWith, String etc) {
 		super();
 		this.relation = relation;
-		this.name = name;
+		this.famName = famName;
 		this.age = age;
 		this.job = job;
 		this.liveWith = liveWith;
@@ -39,8 +39,8 @@ public class Family implements Serializable{
 	public String getRelation() {return relation;}
 	public void setRelation(String relation) {this.relation = relation;}
 
-	public String getName() {return name;}
-	public void setName(String name) {this.name = name;}
+	public String getFamName() {return famName;}
+	public void setFamName(String famName) {this.famName = famName;}
 
 	public int getAge() {return age;}
 	public void setAge(int age) {this.age = age;}

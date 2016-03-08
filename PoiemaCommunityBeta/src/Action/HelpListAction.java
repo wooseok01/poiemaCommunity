@@ -17,8 +17,9 @@ public class HelpListAction {
 	
 	private HelpListDao helpListDao;
 	
-	public HelpListAction(){}
-	
+	public HelpListAction(){
+		helpListDao = new HelpListDao();
+	}
 	
 	public void save(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -28,7 +29,7 @@ public class HelpListAction {
 		ArrayList<Family> familyList = getFamilyList(request);
 		
 		if(familyList.size() > 0){
-			int helpSeq = helpListDao.getRecentHelpSeq(helpList);
+			int helpSeq = helpListDao.getRecentHelpSeq();
 			helpListDao.insertFamilyList(familyList, helpSeq);
 		}
 		
@@ -83,9 +84,8 @@ public class HelpListAction {
 
 	public ArrayList<Family> getFamilyList(HttpServletRequest request){
 		ArrayList<Family> familyList = new ArrayList<Family>();
-		
-		String relation, famName, job, liveWith, etc;
-		int age;
+
+		String relation, famName, job, liveWith, etc, age;
 		
 		for(int i=1; i<=5; i++){
 			
@@ -94,12 +94,13 @@ public class HelpListAction {
 			job = request.getParameter("job"+i);
 			liveWith = request.getParameter("liveWith"+i);
 			etc = request.getParameter("etc"+i);
+			age = request.getParameter("age"+i);
 			
-			if(request.getParameter("age"+i)!=null){
-				age = Integer.parseInt(request.getParameter("age"+i));
+			if(!(age.equals(""))){
+				int numAge = Integer.parseInt(request.getParameter("age"+i));
 				
-				if(relation != null && famName != null && job != null && liveWith != null && etc != null){
-					familyList.add(new Family(relation, famName, age, job, liveWith, etc));
+				if(!(relation.equals("")) && !(famName.equals("")) && !(job.equals("")) && !(liveWith.equals(""))){
+					familyList.add(new Family(relation, famName, numAge, job, liveWith, etc));
 				}
 			}
 		}
