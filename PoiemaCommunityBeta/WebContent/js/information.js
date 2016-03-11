@@ -138,7 +138,9 @@ $(document).ready(function(){
 		}
 	}
 	
-	
+	$('#cancelButton > input').click(function(){
+		location.href = '../main/find';
+	});
 	
 	
 });

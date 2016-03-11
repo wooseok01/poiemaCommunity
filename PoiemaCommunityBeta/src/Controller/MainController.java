@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,18 +42,18 @@ public class MainController extends HttpServlet {
 		
 		try{
 			if(path.equals("/login")){
-				System.out.println("login Page!");
 				loginOutAction.loginCheck(request, response);
 			}else if(path.equals("/save")){
-				System.out.println("data save!");
 				helpListAction.save(request, response);
 			}else if(path.equals("/find")){
-				System.out.println("find query!");
 				helpListAction.find(request, response);
 			}else if(path.equals("/detail")){
-				System.out.println("detail page!");
 				helpListAction.detail(request, response);
+			}else if(path.equals("/update")){
+				System.out.println("update!!");
+				helpListAction.update(request, response);
 			}
+			
 			else{
 				
 			}

@@ -40,10 +40,10 @@
 		<where>
 			<choose>
 				<when test="who eq 'volunteer'.toString()">
-					volunteer = #{name}
+					volunteer LIKE  '%' || #{name} || '%'
 				</when>
 				<when test="who eq 'target'.toString()">
-					volunteer = #{name}
+					applicant LIKE '%' || #{name} || '%'
 				</when>
 			</choose>
 		</where>
@@ -62,5 +62,30 @@
 			helpList_seq = #{id}
 		</where>
 	</select>
+	
+	<update id="update" parameterType="HelpList">
+		UPDATE helpList SET 
+			type = #{type}, 
+			volunteer = #{volunteer}, volunteerTel = #{volunteerTel}, applicant = #{applicant}, applicantTel = #{applicantTel}, 
+			target = #{target}, targetTel = #{targetTel}, address = #{address}, 
+			livingCase = #{livingCase}, sex = #{sex}, age = #{age}, startMonth = #{startMonth}, payMonth = #{payMonth},
+			pay = #{pay}, house = #{house}, protection = #{protection}, generation = #{generation},
+			houseDescription = #{houseDescription}, consultDescription = #{consultDescription}
+		<where>
+			seq = #{seq}
+		</where>
+	</update>
+	
+	
+	
+	
+	
+	
+	<delete id="deleteFamilyList" parameterType="int">
+		DELETE FROM house 
+		<where>
+			helpList_seq = #{helpSeq}
+		</where>
+	</delete>
 	
 </mapper>

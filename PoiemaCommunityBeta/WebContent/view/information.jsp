@@ -240,85 +240,30 @@
       <td class="blue hTd">동거여부</td>
       <td class="blue hTd">기 타<br>(건강상태, 장애 등)</td>
     </tr>
-    <tr>
-      <td><input type="text" name="relation1"></td>
-      <td><input type="text" name="famName1"></td>
-      <td><input type="text" name="age1"></td>
-      <td><input type="text" name="job1"></td>
-      <td>
-        <select name="liveWith1">
-          <option value="1">동거</option>
-          <option value="2">비동거</option>
-        </select>
-      </td>
-      <td><input type="text" name="etc1"></td>
-    </tr>
-    <tr>
-      <td><input type="text" name="relation2"></td>
-      <td><input type="text" name="famName2"></td>
-      <td><input type="text" name="age2"></td>
-      <td><input type="text" name="job2"></td>
-      <td>
-        <select name="liveWith2">
-          <option value="1">동거</option>
-          <option value="2">비동거</option>
-        </select>
-      </td>
-      <td><input type="text" name="etc2"></td>
-    </tr>
-    <tr>
-      <td><input type="text" name="relation3"></td>
-      <td><input type="text" name="famName3"></td>
-      <td><input type="text" name="age3"></td>
-      <td><input type="text" name="job3"></td>
-      <td>
-        <select name="liveWith3">
-          <option value="1">동거</option>
-          <option value="2">비동거</option>
-        </select>
-      </td>
-      <td><input type="text" name="etc3"></td>
-    </tr>
-    <tr>
-      <td><input type="text" name="relation4"></td>
-      <td><input type="text" name="famName4"></td>
-      <td><input type="text" name="age4"></td>
-      <td><input type="text" name="job4"></td>
-      <td>
-        <select name="liveWith4">
-          <option value="1">동거</option>
-          <option value="2">비동거</option>
-        </select>
-      </td>
-      <td><input type="text" name="etc4"></td>
-    </tr>
-    <tr>
-      <td><input type="text" name="relation5"></td>
-      <td><input type="text" name="famName5"></td>
-      <td><input type="text" name="age5"></td>
-      <td><input type="text" name="job5"></td>
-      <td>
-        <select name="liveWith5">
-          <option value="1">동거</option>
-          <option value="2">비동거</option>
-        </select>
-      </td>
-      <td><input type="text" name="etc5"></td>
-    </tr>
+      <c:forEach var="i" begin="1" end="5">
+        <tr>
+          <td>
+            <input type="text" name="relation${i}">
+          </td>
+          <td><input type="text" name="famName${i}"></td>
+          <td><input type="text" name="age${i}"></td>
+          <td><input type="text" name="job${i}"></td>
+          <td>
+            <select name="liveWith${i}">
+              <option value="1">동거</option>
+              <option value="2">비동거</option>
+            </select>
+          </td>
+          <td><input type="text" name="etc${i}"></td>
+        </tr>
+      </c:forEach>
   </table>
   
   <table id="sixthTable">
     <tr>
       <td class="colorTd pink">생 활 사</td>
       <td class="textAreaTd">
-        <c:choose>
-          <c:when test="${helpList ne null}">
-            <textarea name="houseDescription">${helpList.houseDescription}</textarea>
-          </c:when>
-          <c:otherwise>
-            <textarea name="houseDescription" placeholder="생활사를 입력하세요."></textarea>
-          </c:otherwise>
-        </c:choose>
+        <textarea name="houseDescription" placeholder="생활사를 입력하세요.">${houseDescription}</textarea>
       </td>
     </tr>
   </table>
@@ -327,31 +272,23 @@
     <tr>
       <td class="colorTd pink">상담내역</td>
       <td>
-        <c:choose>
-          <c:when test="${helpList ne null}">
-            <textarea name="consultDescription">${helpList.consultDescription}</textarea>
-          </c:when>
-          <c:otherwise>
-            <textarea name="consultDescription" placeholder="상담내역을 입력하세요."></textarea>
-          </c:otherwise>
-        </c:choose>
+        <textarea name="consultDescription">${consultDescription}</textarea>
       </td>
     </tr>
   </table>
-  
-  <div id="buttonContainer">
-    <div>
-      <div id="submitButton">
-        <input type="submit" value="저 장">
-      </div>
-      <div id="cancelButton">
-        <input type="button" value="취 소">
-      </div>
-      <div id="printButton">
-        <input type="button" value="인 쇄">
+    <div id="buttonContainer">
+      <div>
+        <div id="submitButton">
+          <input type="submit" value="저 장">
+        </div>
+        <div id="cancelButton">
+          <input type="button" value="취 소">
+        </div>
+        <div id="printButton">
+          <input type="button" value="인 쇄">
+        </div>
       </div>
     </div>
-  </div>
   </form>
   
   <script src="//code.jquery.com/jquery.min.js"></script>

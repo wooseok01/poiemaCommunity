@@ -22,15 +22,15 @@ public class HelpList implements Serializable{
 	private String house;
 	private String protection;
 	private String generation;
-	private String houseDescription;
-	private String consultDescription;
+	private byte[] houseDescription;
+	private byte[] consultDescription;
 	
 	public HelpList(){}
 	
 	public HelpList(int seq, String type, String volunteer, String volunteerTel, String applicant, String applicantTel,
 			String target, String targetTel, String address, String livingCase, String sex, int age, Date startMonth,
-			Date payMonth, int pay, String house, String protection, String generation, String houseDescription,
-			String consultDescription) {
+			Date payMonth, int pay, String house, String protection, String generation, byte[] houseDescription,
+			byte[] consultDescription) {
 		super();
 		this.seq = seq;
 		this.type = type;
@@ -108,11 +108,11 @@ public class HelpList implements Serializable{
 	public Date getPayMonth() {return payMonth;}
 	public void setPayMonth(Date payMonth) {this.payMonth = payMonth;}
 
-	public String getHouseDescription() {return houseDescription;}
-	public void setHouseDescription(String houseDescription) {this.houseDescription = houseDescription;}
+	public byte[] getHouseDescription() {return houseDescription;}
+	public void setHouseDescription(byte[] houseDescription) {this.houseDescription = houseDescription;}
 
-	public String getConsultDescription() {return consultDescription;}
-	public void setConsultDescription(String consultDescription) {this.consultDescription = consultDescription;}
+	public byte[] getConsultDescription() {return consultDescription;}
+	public void setConsultDescription(byte[] consultDescription) {this.consultDescription = consultDescription;}
 
 	@Override
 	public String toString() {

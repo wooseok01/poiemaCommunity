@@ -55,6 +55,14 @@ public class HelpListDao {
 	public ArrayList<Family> findFamily(int id) {
 		return helpListMapper.findFamily(id);
 	}
+
+	public void update(HelpList helpList) {
+		helpListMapper.update(helpList);
+	}
+	
+	public void deleteFamilyList(int helpSeq){
+		helpListMapper.deleteFamilyList(helpSeq);
+	}
 	
 
 }

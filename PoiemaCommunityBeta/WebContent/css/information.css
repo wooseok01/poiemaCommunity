@@ -199,7 +199,7 @@ form{
 }
 
 #submitButton,
-#deleteButton,
+#cancelButton,
 #printButton{
     width : 100px;
     margin : 0 auto;
@@ -207,12 +207,18 @@ form{
 }
 
 #submitButton > input,
-#deleteButton > input,
+#cancelButton > input,
 #printButton > input{
     background-color : rgba(12,143,187,0.5);
     border: none;
     color : white;
     border-radius : 10px;
+}
+
+#submitButton > input:HOVER,
+#cancelButton > input:HOVER,
+#printButton > input:HOVER{
+    cursor: pointer;
 }
 
 #pay{

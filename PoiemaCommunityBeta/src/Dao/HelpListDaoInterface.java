@@ -14,5 +14,7 @@ public interface HelpListDaoInterface {
 	ArrayList<HelpList> find(HashMap<String, String> map);
 	HelpList findOne(int id);
 	ArrayList<Family> findFamily(int id);
+	void update(HelpList helpList);
+	void deleteFamilyList(int helpSeq);
 
 }

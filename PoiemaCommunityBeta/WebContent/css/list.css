@@ -85,3 +85,8 @@ thead > tr > td{
     text-decoration: underline;
     color : blue;
 }
+
+#submitBtn:HOVER,
+.btnContainer > input:HOVER{
+    cursor: pointer;
+}

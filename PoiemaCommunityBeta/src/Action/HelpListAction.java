@@ -1,6 +1,5 @@
 package Action;
 
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.text.ParseException;
@@ -44,10 +43,13 @@ public class HelpListAction {
 			request.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {e.printStackTrace();}
 		
+		int seq = 0;
+		if(request.getParameter("seq") != null){
+			seq = Integer.parseInt(request.getParameter("seq"));
+		}
 		String type = request.getParameter("type");
 		
 		String volunteer = request.getParameter("volunteer");
-		System.out.println(volunteer);
 		String volunteerTel = request.getParameter("volunteerTel");
 		String applicant = request.getParameter("applicant");
 		String applicantTel = request.getParameter("applicantTel");
@@ -58,20 +60,42 @@ public class HelpListAction {
 		
 		String livingCase = request.getParameter("livingCase");
 		String sex = request.getParameter("sex");
-		int age = Integer.parseInt(request.getParameter("age"));
-		Date startMonth = changeStringToDate(request.getParameter("startMonth"));
-		Date payMonth = changeStringToDate(request.getParameter("payMonth"));
 		
-		int pay = Integer.parseInt(request.getParameter("pay"));
+		int age = 0;
+		if(!(request.getParameter("age").equals(""))){
+			age = Integer.parseInt(request.getParameter("age"));
+		}
+		
+		Date startMonth = null;
+		if(request.getParameter("startMonth") != null){
+			startMonth = changeStringToDate(request.getParameter("startMonth"));
+		}
+		
+		Date payMonth = null;
+		if(request.getParameter("payMonth") != null){
+			payMonth = changeStringToDate(request.getParameter("payMonth"));
+		}
+		
+		int pay = 0;
+		if(request.getParameter("pay") != null){
+			pay = Integer.parseInt(request.getParameter("pay"));
+		}
+		
 		String house = request.getParameter("house");
 		String protection = request.getParameter("protection");
 		String generation = request.getParameter("generation");
 		
-		String houseDescription = request.getParameter("houseDescription");
-		String consultDescription = request.getParameter("consultDescription");
+		byte[] houseDescription = null;
+		if(request.getParameter("houseDescription") != null){
+			houseDescription = request.getParameter("houseDescription").getBytes();
+		}
 		
+		byte[] consultDescription = null;
+		if(request.getParameter("consultDescription")  != null){
+			consultDescription = request.getParameter("consultDescription").getBytes();
+		}
 		
-		return new HelpList(0, type, volunteer, volunteerTel, applicant, applicantTel, 
+		return new HelpList(seq, type, volunteer, volunteerTel, applicant, applicantTel, 
 				target, targetTel, address, livingCase, sex, age, startMonth, payMonth, 
 				pay, house, protection, generation, houseDescription, consultDescription);
 	}
@@ -117,12 +141,12 @@ public class HelpListAction {
 		String name = request.getParameter("name");
 		String who = request.getParameter("who");
 		
-		System.out.println(name);
-		System.out.println(who);
+		if(name != null){
+			
+			ArrayList<HelpList> personList = helpListDao.find(name, who);
+			request.setAttribute("personList", personList);
+		}
 		
-		ArrayList<HelpList> personList = helpListDao.find(name, who);
-		System.out.println(personList);
-		request.setAttribute("personList", personList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/list.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -130,22 +154,40 @@ public class HelpListAction {
 	public void detail(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		int id = Integer.parseInt(request.getParameter("id"));
 		HelpList helpList = helpListDao.findOne(id);
-		ArrayList<Family> familyList = helpListDao.findFamily(id);
 		
-		helpList.setHouseDescription(getStringUsingBuffer(helpList.getHouseDescription()));
-		helpList.setConsultDescription(getStringUsingBuffer(helpList.getConsultDescription()));
+		String houseDescription = changeByteToString(helpList.getHouseDescription());
+		String consultDescription = changeByteToString(helpList.getConsultDescription());
 		
 		request.setAttribute("helpList", helpList);
-		request.setAttribute("familyList", familyList);
-		System.out.println(helpList.getHouseDescription());
+		request.setAttribute("houseDescription", houseDescription);
+		request.setAttribute("consultDescription", consultDescription);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/information.jsp");
 		dispatcher.forward(request, response);
 	}
 	
-	public String getStringUsingBuffer(String string) throws Exception{
-		return new String(string.getBytes(),"UTF-8");
+	public void update(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		HelpList helpList = setRequestParameter(request);
+		helpListDao.update(helpList);
+		System.out.println(helpList.toString());
+		
+		ArrayList<Family> familyList = getFamilyList(request);
+		
+		helpListDao.deleteFamilyList(helpList.getSeq());
+		
+		if(familyList.size() > 0){
+			int helpSeq = helpListDao.getRecentHelpSeq();
+			helpListDao.insertFamilyList(familyList, helpSeq);
+		}
+		
+		response.sendRedirect(request.getContextPath()+"/view/list.jsp");
 	}
+	
+	public String changeByteToString(byte[] description) throws Exception{
+		return new String(description,"UTF-8");
+	}
+
+
 
 	
 }
