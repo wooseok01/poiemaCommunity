@@ -15,9 +15,14 @@
   <c:if test="${helpList ne null}">
     <input type="text" class="hidden" id="type" value="${helpList.type}">
     <input type="text" class="hidden" id="livingCase" value="${helpList.livingCase}">  
+    <input type="text" class="hidden" id="sex" value="${helpList.sex}">  
+    <input type="text" class="hidden" id="house" value="${helpList.house}">  
+    <input type="text" class="hidden" id="protection" value="${helpList.protection}">  
+    <input type="text" class="hidden" id="generation" value="${helpList.generation}">
   </c:if>
   
   <form action="../main/save" method="post">
+    <input type="text" class="hidden" id="id" name="seq">
     <div id="firstTable">
       <div>
         <table id="headerTable">
@@ -110,7 +115,6 @@
             <input type="text" name="targetTel">
           </c:otherwise>
         </c:choose>
-        
       </td>
       <td class="label colorTd blue">주 소</td>
       <td class="secondWhiteTd">
@@ -144,19 +148,56 @@
         </select>
       </td>
       <td class="colorTd blue">나이</td>
-      <td class="thirdWhiteTd"><input type="text" name="age"></td>
+      <td class="thirdWhiteTd">
+        <c:choose>
+          <c:when test="${helpList ne null}">
+            <input type="text" name="age" value="${helpList.age}">
+          </c:when>
+          <c:otherwise>
+            <input type="text" name="age">
+          </c:otherwise>
+        </c:choose>
+      </td>
       <td class="colorTd blue">신청월</td>
-      <td class="thirdWhiteTd"><input type="text" class="datePicker" name="startMonth"></td>
+      <td class="thirdWhiteTd">
+        <c:choose>
+          <c:when test="${helpList ne null}">
+            <input type="text" name="startMonth" class="datePicker" value="${helpList.startMonth}">
+          </c:when>
+          <c:otherwise>
+            <input type="text" class="datePicker" name="startMonth">
+          </c:otherwise>
+        </c:choose>
+        
+      </td>
       <td class="colorTd blue">지급월</td>
-      <td class="thirdWhiteTd"><input type="text" class="datePicker" name="payMonth"></td>
+      <td class="thirdWhiteTd">
+        <c:choose>
+          <c:when test="${helpList ne null}">
+            <input type="text" name="payMonth" class="datePicker" value="${helpList.payMonth}">
+          </c:when>
+          <c:otherwise>
+            <input type="text" class="datePicker" name="payMonth">
+          </c:otherwise>
+        </c:choose>
+      </td>
     </tr>
     <tr>
       <td class="colorTd blue">수입</td>
-      <td class="thirdWhiteTd"><input type="text" id="pay" name="pay">만원</td>
+      <td class="thirdWhiteTd">
+        <c:choose>
+          <c:when test="${helpList ne null}">
+            <input type="text" id="pay" name="pay" value="${helpList.pay}">만원
+          </c:when>
+          <c:otherwise>
+            <input type="text" id="pay" name="pay">만원
+          </c:otherwise>
+        </c:choose>
+      </td>
       <td class="colorTd blue">주거사항</td>
       <td class="thirdWhiteTd">
         <select name="house">
-          <option value="month">월세</option>
+          <option value="month">월세</option> 
           <option value="year">전세</option>
           <option value="free">무상임대</option>
           <option value="own">자가</option>
@@ -269,14 +310,32 @@
   <table id="sixthTable">
     <tr>
       <td class="colorTd pink">생 활 사</td>
-      <td class="textAreaTd"><textarea name="houseDescription"></textarea></td>
+      <td class="textAreaTd">
+        <c:choose>
+          <c:when test="${helpList ne null}">
+            <textarea name="houseDescription">${helpList.houseDescription}</textarea>
+          </c:when>
+          <c:otherwise>
+            <textarea name="houseDescription" placeholder="생활사를 입력하세요."></textarea>
+          </c:otherwise>
+        </c:choose>
+      </td>
     </tr>
   </table>
   
   <table id="seventhTable">
     <tr>
       <td class="colorTd pink">상담내역</td>
-      <td><textarea name="consultDescription"></textarea></td>
+      <td>
+        <c:choose>
+          <c:when test="${helpList ne null}">
+            <textarea name="consultDescription">${helpList.consultDescription}</textarea>
+          </c:when>
+          <c:otherwise>
+            <textarea name="consultDescription" placeholder="상담내역을 입력하세요."></textarea>
+          </c:otherwise>
+        </c:choose>
+      </td>
     </tr>
   </table>
   

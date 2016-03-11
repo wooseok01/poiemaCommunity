@@ -1,5 +1,6 @@
 package Action;
 
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.text.ParseException;
@@ -131,11 +132,19 @@ public class HelpListAction {
 		HelpList helpList = helpListDao.findOne(id);
 		ArrayList<Family> familyList = helpListDao.findFamily(id);
 		
+		helpList.setHouseDescription(getStringUsingBuffer(helpList.getHouseDescription()));
+		helpList.setConsultDescription(getStringUsingBuffer(helpList.getConsultDescription()));
+		
 		request.setAttribute("helpList", helpList);
 		request.setAttribute("familyList", familyList);
+		System.out.println(helpList.getHouseDescription());
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/information.jsp");
 		dispatcher.forward(request, response);
+	}
+	
+	public String getStringUsingBuffer(String string) throws Exception{
+		return new String(string.getBytes(),"UTF-8");
 	}
 
 	
