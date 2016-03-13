@@ -34,18 +34,19 @@
 		);
 	</insert>
 	
-	<select id="find" parameterType="hashmap" resultType="HelpList">
+	<select id="findTarget" parameterType="string" resultType="HelpList">
 		SELECT seq, volunteer, volunteerTel, target, targetTel, 
 				sex, age, livingCase FROM helpList 
 		<where>
-			<choose>
-				<when test="who eq 'volunteer'.toString()">
-					volunteer LIKE  '%' || #{name} || '%'
-				</when>
-				<when test="who eq 'target'.toString()">
-					applicant LIKE '%' || #{name} || '%'
-				</when>
-			</choose>
+			target LIKE CONCAT('%', #{name}, '%')
+		</where>
+	</select>
+	
+	<select id="findVolunteer" parameterType="string" resultType="HelpList">
+		SELECT seq, volunteer, volunteerTel, target, targetTel, 
+				sex, age, livingCase FROM helpList 
+		<where>
+			volunteer LIKE CONCAT('%', #{name}, '%')
 		</where>
 	</select>
 	
@@ -75,12 +76,7 @@
 			seq = #{seq}
 		</where>
 	</update>
-	
-	
-	
-	
-	
-	
+
 	<delete id="deleteFamilyList" parameterType="int">
 		DELETE FROM house 
 		<where>

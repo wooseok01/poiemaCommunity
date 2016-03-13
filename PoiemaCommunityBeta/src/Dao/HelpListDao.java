@@ -42,10 +42,15 @@ public class HelpListDao {
 
 	public ArrayList<HelpList> find(String name, String who) {
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("name", name);
-		map.put("who", who);
 		
-		return helpListMapper.find(map);
+		if(who.equals("volunteer")){
+			return helpListMapper.findVolunteer(name);
+		}else if(who.equals("target")){
+			return helpListMapper.findTarget(name);
+		}else{
+			return null;
+		}
+		
 	}
 
 	public HelpList findOne(int id) {

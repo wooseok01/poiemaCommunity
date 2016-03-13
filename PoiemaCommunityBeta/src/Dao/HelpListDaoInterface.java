@@ -16,5 +16,7 @@ public interface HelpListDaoInterface {
 	ArrayList<Family> findFamily(int id);
 	void update(HelpList helpList);
 	void deleteFamilyList(int helpSeq);
+	ArrayList<HelpList> findVolunteer(String name);
+	ArrayList<HelpList> findTarget(String name);
 
 }

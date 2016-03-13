@@ -44,7 +44,8 @@ public class HelpListAction {
 		} catch (UnsupportedEncodingException e) {e.printStackTrace();}
 		
 		int seq = 0;
-		if(request.getParameter("seq") != null){
+		System.out.println("sss -> "+request.getParameter("seq").equals(""));
+		if(!(request.getParameter("seq").equals(""))){
 			seq = Integer.parseInt(request.getParameter("seq"));
 		}
 		String type = request.getParameter("type");
@@ -140,9 +141,10 @@ public class HelpListAction {
 		
 		String name = request.getParameter("name");
 		String who = request.getParameter("who");
+		System.out.println(who);
+		System.out.println(name);
 		
-		if(name != null){
-			
+		if(!(name.equals(""))){
 			ArrayList<HelpList> personList = helpListDao.find(name, who);
 			request.setAttribute("personList", personList);
 		}
