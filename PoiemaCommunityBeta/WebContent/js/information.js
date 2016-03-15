@@ -139,7 +139,7 @@ $(document).ready(function(){
 	}
 	
 	$('#cancelButton > input').click(function(){
-		location.href = '../main/find';
+		location.href = '../view/list.jsp';
 	});
 	
 	

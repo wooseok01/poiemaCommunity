@@ -9,25 +9,43 @@ body{
     margin : 0 auto;
 }
 
+#typeSearch{
+    width : 20%;
+    height : 100%;
+    border : none;
+    border-radius : 10px;
+    background-color : rgb(1, 143, 229);
+    color : white;
+    font-size : 20px;
+    margin-right: 25px;
+}
+
+#typeSearch:HOVER{
+    cursor: pointer;
+}
+
 form{
-    width : 500px;
+    width : 700px;
     height : 50px;
     margin: 0 auto;
     margin-top: 25px;
     float : left;
-    margin-left : 200px;
+    
     margin-bottom : 45px;
 }
 
-form > select{
-    width : 25%;
-    height : 100%;
+form > input{
     float : left;
+}
+
+form > div > select{
+    width : 15%;
+    height : 100%;
     font-size : 20px;
 }
 
 #searchBox{
-    width : 55%;
+    width : 40%;
     height : 100%;
     font-size : 20px;
 }
@@ -58,6 +76,10 @@ form > select{
     background-color : rgb(1, 143, 229);
     color : white;
     font-size : 20px;
+}
+
+#btnContainer > input:HOVER{
+    cursor: pointer;
 }
 
 table{

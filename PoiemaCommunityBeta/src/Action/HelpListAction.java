@@ -189,6 +189,12 @@ public class HelpListAction {
 		return new String(description,"UTF-8");
 	}
 
+	public void listType(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		//지금 년도와 월 을 받고 각 타입별로 total을 기본적으로 받아와야 한다.
+		//helpListDao에서 getTotal method만들고 그걸 활용할 것. -> 함수화.
+	}
+
+
 
 
 	

@@ -52,6 +52,9 @@ public class MainController extends HttpServlet {
 			}else if(path.equals("/update")){
 				System.out.println("update!!");
 				helpListAction.update(request, response);
+			}else if(path.equals("/listType")){
+				System.out.println("listType!!");
+				helpListAction.listType(request, response);
 			}
 			
 			else{

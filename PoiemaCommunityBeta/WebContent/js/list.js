@@ -4,4 +4,12 @@ $(document).ready(function(){
 		location.href = '../main/detail?id='+id;
 	});
 	
+	$('#typeSearch').click(function(){
+		location.href = '../main/listType';
+	});
+	
+	$('#addPerson').click(function(){
+		location.href = '../view/information.jsp';
+	});
+	
 });

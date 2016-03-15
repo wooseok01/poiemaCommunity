@@ -11,17 +11,22 @@
 </head>
 <body>
   <form action="../main/find" method="post">
-    <select name="who">
-      <option value="volunteer">봉사자</option>
-      <option value="target">대상자</option>
-    </select>
-    <input type="text" placeholder="봉사자나 대상자를 검색하세요." id="searchBox" name="name" value="${query}">
-    <input type="submit" value="검 색" id="submitBtn">
+    
+    <input type="button" value="Type별 명단" id="typeSearch">
+    <div>
+      <select name="who">
+        <option value="volunteer">봉사자</option>
+        <option value="target">대상자</option>
+      </select>
+      
+      <input type="text" placeholder="봉사자나 대상자를 검색하세요." id="searchBox" name="name" value="${query}">
+      <input type="submit" value="검 색" id="submitBtn">
+    </div>
   </form>
   
   <div id="btnContainer">
-    <input type="button" value="+추가">
-    <input type="button" value="-삭제">
+    <input type="button" value="+추가" id="addPerson">
+    <input type="button" value="-삭제" id="deletePerson">
   </div>
   
   <table>
