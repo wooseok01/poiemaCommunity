@@ -2,6 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
 <mapper namespace="Dao.HelpListDaoInterface">
+
+	<resultMap type="hashmap" id="listTypeHeader">
+		<result javaType="string" column="type" property="type"/>
+		<result javaType="string" column="num" property="num"/>
+	</resultMap>
+	
+	<resultMap type="hashmap" id="header">
+		<result javaType="string" column="type" property="type"/>
+		<result javaType="string" column="num" property="num"/>
+	</resultMap>
 	
 	<insert id="save" parameterType="HelpList">
 		INSERT INTO helpList(
@@ -35,16 +45,16 @@
 	</insert>
 	
 	<select id="findTarget" parameterType="string" resultType="HelpList">
-		SELECT seq, volunteer, volunteerTel, target, targetTel, 
-				sex, age, livingCase FROM helpList 
+		SELECT seq, type, volunteer, target, sex, age, 
+			   generation, address FROM helpList 
 		<where>
 			target LIKE CONCAT('%', #{name}, '%')
 		</where>
 	</select>
 	
 	<select id="findVolunteer" parameterType="string" resultType="HelpList">
-		SELECT seq, volunteer, volunteerTel, target, targetTel, 
-				sex, age, livingCase FROM helpList 
+		SELECT seq, type, volunteer, target, sex, age, 
+			   generation, address FROM helpList  
 		<where>
 			volunteer LIKE CONCAT('%', #{name}, '%')
 		</where>
@@ -83,5 +93,19 @@
 			helpList_seq = #{helpSeq}
 		</where>
 	</delete>
+	
+	<select id="getTypeList" parameterType="string" resultMap="listTypeHeader">
+		SELECT count(type) AS num, type FROM helpList
+		<where>
+			type = #{type}
+		</where>
+	</select>
+	
+	<select id="getHeader" parameterType="string" resultMap="header">
+		SELECT count(type) AS num, type FROM helpList
+		<where>
+			type = #{type}
+		</where>
+	</select>
 	
 </mapper>

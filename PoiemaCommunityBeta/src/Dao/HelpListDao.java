@@ -41,10 +41,11 @@ public class HelpListDao {
 	}
 
 	public ArrayList<HelpList> find(String name, String who) {
-		HashMap<String, String> map = new HashMap<String, String>();
 		
 		if(who.equals("volunteer")){
-			return helpListMapper.findVolunteer(name);
+			ArrayList<HelpList> list = helpListMapper.findVolunteer(name);
+			System.out.println(list.toString());
+			return list;
 		}else if(who.equals("target")){
 			return helpListMapper.findTarget(name);
 		}else{
@@ -67,6 +68,21 @@ public class HelpListDao {
 	
 	public void deleteFamilyList(int helpSeq){
 		helpListMapper.deleteFamilyList(helpSeq);
+	}
+
+	public ArrayList<HashMap<String, String>> getTypeList() {
+		ArrayList<HashMap<String, String>> typeList = new ArrayList<HashMap<String, String>>();
+		String arr[] = {"A","B","love","none"};
+		
+		for(int i=0; i<arr.length; i++){
+			typeList.add(helpListMapper.getTypeList(arr[i]));
+		}
+		
+		return typeList;
+	}
+
+	public HashMap<String, String> getHeader(String type) {
+		return helpListMapper.getHeader(type);
 	}
 	
 

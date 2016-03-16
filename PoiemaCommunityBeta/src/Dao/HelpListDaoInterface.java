@@ -18,5 +18,7 @@ public interface HelpListDaoInterface {
 	void deleteFamilyList(int helpSeq);
 	ArrayList<HelpList> findVolunteer(String name);
 	ArrayList<HelpList> findTarget(String name);
+	HashMap<String, String> getTypeList(String string);
+	HashMap<String, String> getHeader(String type);
 
 }

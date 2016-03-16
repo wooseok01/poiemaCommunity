@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -190,12 +191,15 @@ public class HelpListAction {
 	}
 
 	public void listType(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		//지금 년도와 월 을 받고 각 타입별로 total을 기본적으로 받아와야 한다.
-		//helpListDao에서 getTotal method만들고 그걸 활용할 것. -> 함수화.
+		String type = request.getParameter("type");
+		ArrayList<HashMap<String, String>> map = helpListDao.getTypeList();
+		
+		if(!(type.equals(""))){
+			HashMap<String, String> header = helpListDao.getHeader(type);
+			request.setAttribute("header", header);
+		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/listType.jsp");
+		dispatcher.forward(request, response);
 	}
-
-
-
-
-	
 }

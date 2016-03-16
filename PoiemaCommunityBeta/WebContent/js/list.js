@@ -12,4 +12,5 @@ $(document).ready(function(){
 		location.href = '../view/information.jsp';
 	});
 	
+	
 });

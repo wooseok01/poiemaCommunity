@@ -13,7 +13,6 @@ public class LoginOutAction {
 	
 	public LoginOutAction(){
 		userDao = new UserDao();
-
 	}
 	
 	public void loginCheck(HttpServletRequest request, HttpServletResponse response) throws Exception{

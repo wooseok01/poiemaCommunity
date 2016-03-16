@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>사랑의물품 대상자 신상명세</title>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
 <link rel="stylesheet" href="../css/information.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
@@ -32,7 +32,8 @@
               <select name="type">
                 <option value="A">A</option>
                 <option value="B">B</option>
-                <option value="C">C</option>
+                <option value="love">사랑</option>
+                <option value="none">미연결</option>
               </select>
             </td>
           </tr>
@@ -271,8 +272,8 @@
   <table id="seventhTable">
     <tr>
       <td class="colorTd pink">상담내역</td>
-      <td>
-        <textarea name="consultDescription">${consultDescription}</textarea>
+      <td class="textAreaTd">
+        <textarea name="consultDescription" placeholder="상담내역을 입력하세요.">${consultDescription}</textarea>
       </td>
     </tr>
   </table>
