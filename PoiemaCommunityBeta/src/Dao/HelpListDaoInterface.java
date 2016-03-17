@@ -20,5 +20,10 @@ public interface HelpListDaoInterface {
 	ArrayList<HelpList> findTarget(String name);
 	HashMap<String, String> getTypeList(String string);
 	HashMap<String, String> getHeader(String type);
+	HashMap<String, String> getHeaderAll();	
+	ArrayList<HelpList> findTypePersonList(String type);
+	ArrayList<HelpList> findAllPersonList();
+	ArrayList<Family> getFamilyData(String helpSeq);
+	
 
 }

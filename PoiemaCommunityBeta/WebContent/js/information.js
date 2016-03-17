@@ -16,6 +16,40 @@ $(document).ready(function(){
 		
 		$('#id').attr('value',id[1]);
 		$('form').attr('action','../main/update');
+		
+		$.ajax({
+			url : '../main/getFamilyData?seq='+id[1],
+			type : 'get',
+			dataType : 'json',
+			success : function(data){
+				$.each(data, function(index, object){
+					var famName = object.famName;
+					var age = object.age;
+					var job = object.job;
+					var relation = object.relation;
+					var liveWith = object.liveWith;
+					var etc = object.etc;
+					
+					$('#famName'+(index+1)).val(famName);
+					$('#age'+(index+1)).val(age);
+					$('#job'+(index+1)).val(job);
+					$('#relation'+(index+1)).val(relation);
+					$('#etc'+(index+1)).val(relation);
+					
+					switch(liveWith){
+						case '1' :
+							$('select [name=liveWith'+(index+1)+']').find('option').eq(0).attr('selected','selected');
+							break;
+						case '2' :
+							$('select [name=liveWith'+(index+1)+']').find('option').eq(1).attr('selected','selected');
+							break;
+					}
+				});
+			},
+			error : function(err){
+				console.log(err.message);
+			}
+		})
 	}
 	
 	if($('#type').html() != null || $('#type').html() != ''){

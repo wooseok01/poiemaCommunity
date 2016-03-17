@@ -242,20 +242,20 @@
       <td class="blue hTd">기 타<br>(건강상태, 장애 등)</td>
     </tr>
       <c:forEach var="i" begin="1" end="5">
-        <tr>
+        <tr class="contentTr">
           <td>
-            <input type="text" name="relation${i}">
+            <input type="text" name="relation${i}" id="relation${i}">
           </td>
-          <td><input type="text" name="famName${i}"></td>
-          <td><input type="text" name="age${i}"></td>
-          <td><input type="text" name="job${i}"></td>
+          <td><input type="text" name="famName${i}" id="famName${i}"></td>
+          <td><input type="text" name="age${i}" id="age${i}"></td>
+          <td><input type="text" name="job${i}" id="job${i}"></td>
           <td>
             <select name="liveWith${i}">
               <option value="1">동거</option>
               <option value="2">비동거</option>
             </select>
           </td>
-          <td><input type="text" name="etc${i}"></td>
+          <td><input type="text" name="etc${i}" id="etc${i}"></td>
         </tr>
       </c:forEach>
   </table>

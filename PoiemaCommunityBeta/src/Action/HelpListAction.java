@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import Dao.HelpListDao;
 import Model.Family;
 import Model.HelpList;
+import net.sf.json.JSONArray;
 
 public class HelpListAction {
 	
@@ -192,14 +193,47 @@ public class HelpListAction {
 
 	public void listType(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		String type = request.getParameter("type");
-		ArrayList<HashMap<String, String>> map = helpListDao.getTypeList();
+		ArrayList<HashMap<String, String>> statusList = helpListDao.getTypeList();
+		ArrayList<HelpList> personList = null; 
+		System.out.println(statusList.toString() + " " + type);
+		request.setAttribute("statusList", statusList);
+
 		
-		if(!(type.equals(""))){
+		if(type != null && !(type.equals(""))){
 			HashMap<String, String> header = helpListDao.getHeader(type);
+			HashMap<String, String> item = new HashMap<String, String>();
+			item.put("type", type);
+			
+			for(int i=0; i<statusList.size(); i++){
+				if(statusList.get(i).get("type").equals(type)){
+					System.out.println(statusList.get(i).toString());
+					item.put("total", statusList.get(i).get("num"));
+					break;
+				}
+			}
+			
+			personList = helpListDao.findTypePersonList(type);
+			
+			request.setAttribute("type", item);
 			request.setAttribute("header", header);
+			request.setAttribute("personList", personList);
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/listType.jsp");
 		dispatcher.forward(request, response);
+	}
+
+	public void getFamilyData(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String helpSeq = request.getParameter("seq");
+		System.out.println("---->"+helpSeq);
+		if(helpSeq != null && !(helpSeq.equals(""))){
+			ArrayList<Family> familyList = helpListDao.getFamilyData(helpSeq);
+			JSONArray jsonArray = JSONArray.fromObject(familyList);
+			response.setContentType("application/json");
+			response.setCharacterEncoding("utf-8");
+			response.getWriter().println(jsonArray);
+		}else{
+			response.getWriter().print(new Error("error!!"));
+		}
 	}
 }

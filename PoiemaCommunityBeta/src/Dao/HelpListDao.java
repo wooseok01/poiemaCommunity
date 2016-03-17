@@ -74,15 +74,28 @@ public class HelpListDao {
 		ArrayList<HashMap<String, String>> typeList = new ArrayList<HashMap<String, String>>();
 		String arr[] = {"A","B","love","none"};
 		
-		for(int i=0; i<arr.length; i++){
+		for(int i=0; i<arr.length; i++)
 			typeList.add(helpListMapper.getTypeList(arr[i]));
-		}
-		
+		typeList.add(helpListMapper.getHeaderAll());
+		typeList.get(typeList.size()-1).put("type", "all");
 		return typeList;
 	}
 
 	public HashMap<String, String> getHeader(String type) {
 		return helpListMapper.getHeader(type);
+	}
+
+	public ArrayList<HelpList> findTypePersonList(String type) {
+		if(type.equals("all")){
+			return helpListMapper.findAllPersonList();
+		}else{
+			return helpListMapper.findTypePersonList(type);
+		}
+		
+	}
+
+	public ArrayList<Family> getFamilyData(String helpSeq) {
+		return helpListMapper.getFamilyData(helpSeq);
 	}
 	
 

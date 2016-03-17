@@ -108,4 +108,28 @@
 		</where>
 	</select>
 	
+	<select id="getHeaderAll" resultMap="header">
+		SELECT count(*) AS num FROM helpList
+	</select>
+	
+	<select id="findTypePersonList" parameterType="string" resultType="HelpList">
+		SELECT seq, type, volunteer, target, sex, age, generation, address
+		FROM helpList
+		<where>
+			type = #{type}
+		</where>
+	</select>
+	
+	<select id="findAllPersonList" resultType="HelpList">
+		SELECT seq, type, volunteer, target, sex, age, generation 
+		FROM helpList
+	</select>
+	
+	<select id="getFamilyData" parameterType="string" resultType="Family">
+		SELECT * FROM house 
+		<where>
+			helpList_seq = #{helpSeq}
+		</where>
+	</select>
+	
 </mapper>
