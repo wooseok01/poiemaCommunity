@@ -12,6 +12,7 @@
 <title>유형별 인원 보기</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
 <link rel="stylesheet" href="../css/typeList.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 <body>
   <c:if test="${type ne null}">
@@ -92,6 +93,7 @@
     <div id="btnContainer">
       <input type="button" value="+추가" id="addBtn">
       <input type="button" value="-삭제" id="delBtn">
+      <input type="button" value="검색 페이지로" id="goToList">      
     </div>
   </div>
   
@@ -182,7 +184,11 @@
       </c:otherwise>
     </c:choose>
   </table>
+  
+  <div id="dialog"></div>
+  
 <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../js/listType.js"></script>
 </body>
 </html>

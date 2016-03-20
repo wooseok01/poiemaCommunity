@@ -97,6 +97,12 @@ public class HelpListDao {
 	public ArrayList<Family> getFamilyData(String helpSeq) {
 		return helpListMapper.getFamilyData(helpSeq);
 	}
+
+	public void deleteHelpList(String[] seqList) {
+		HashMap<String, String[]> map = new HashMap<String, String[]>();
+		map.put("seqList", seqList);
+		helpListMapper.deleteHelpList(map);
+	}
 	
 
 }

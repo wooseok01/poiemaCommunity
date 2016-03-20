@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import Dao.HelpListDao;
 import Model.Family;
 import Model.HelpList;
+import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 
 public class HelpListAction {
@@ -204,7 +205,18 @@ public class HelpListAction {
 			HashMap<String, String> item = new HashMap<String, String>();
 			item.put("type", type);
 			
+			
 			for(int i=0; i<statusList.size(); i++){
+				if(statusList.get(i).get("type") == null){
+					switch(i){
+						case 0 : statusList.get(i).put("type", "A"); break;
+						case 1 : statusList.get(i).put("type", "B"); break;
+						case 2 : statusList.get(i).put("type", "love"); break;
+						case 3 : statusList.get(i).put("type", "none"); break;
+						case 4 : statusList.get(i).put("type", "all"); break;
+					}
+				}
+				
 				if(statusList.get(i).get("type").equals(type)){
 					System.out.println(statusList.get(i).toString());
 					item.put("total", statusList.get(i).get("num"));
@@ -235,5 +247,24 @@ public class HelpListAction {
 		}else{
 			response.getWriter().print(new Error("error!!"));
 		}
+	}
+
+	public void deleteHelpList(HttpServletRequest request, HttpServletResponse response) {
+		String[] seqList = request.getParameterValues("seqList[]");
+		System.out.println(seqList.length);
+		
+		try{
+			if(seqList.length != 0){
+				for(int i=0; i<seqList.length; i++){
+					helpListDao.deleteFamilyList(Integer.parseInt(seqList[i]));
+				}
+				helpListDao.deleteHelpList(seqList);
+			}
+			response.setContentType("application/json");
+			response.setCharacterEncoding("utf-8");
+			JSONArray jsonArray = new JSONArray();
+			jsonArray.add("success");
+			response.getWriter().print(jsonArray);
+		}catch(Exception e){e.printStackTrace();}
 	}
 }

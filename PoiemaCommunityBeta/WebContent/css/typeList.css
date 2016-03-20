@@ -118,4 +118,6 @@ table,td{
     width : 330px;
 }
 
-
+#dialog{
+    display : none;
+}

@@ -132,4 +132,14 @@
 		</where>
 	</select>
 	
+	<delete id="deleteHelpList" parameterType="hashmap">
+		DELETE FROM helpList 
+		
+		<where>
+			<foreach collection="seqList" item="item" index="index" open="(" close=")" separator="OR">
+				seq = ${seqList[index]} 
+			</foreach>
+		</where>
+	</delete>
+	
 </mapper>

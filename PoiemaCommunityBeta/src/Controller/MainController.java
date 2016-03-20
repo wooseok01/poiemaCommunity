@@ -56,6 +56,9 @@ public class MainController extends HttpServlet {
 			}else if(path.equals("/getFamilyData")){
 				System.out.println("getFamilyData!!!");
 				helpListAction.getFamilyData(request, response);
+			}else if(path.equals("/deleteHelpList")){
+				System.out.println("helpList delete!!");
+				helpListAction.deleteHelpList(request, response);
 			}
 			
 			else{
