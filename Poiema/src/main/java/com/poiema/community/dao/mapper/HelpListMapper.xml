@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.poiema.community.mapper.HelpListDaoInterface">
+
+	<resultMap type="hashmap" id="listTypeHeader">
+		<result javaType="string" column="num" property="num"/>
+	</resultMap>
+	
+	<resultMap type="hashmap" id="header">
+		<result javaType="string" column="num" property="num"/>
+	</resultMap>
+
+	<insert id="save" parameterType="HelpList">
+		INSERT INTO helpList(
+			type, 
+			volunteer, volunteerTel, applicant, applicantTel, 
+			target, targetTel, address, 
+			livingCase, sex, age, startMonth, payMonth,
+			pay, house, protection, generation,
+			houseDescription, consultDescription
+		) values(
+			#{type}, 
+			#{volunteer}, #{volunteerTel}, #{applicant}, #{applicantTel}, 
+			#{target}, #{targetTel}, #{address}, 
+			#{livingCase}, #{sex}, #{age}, #{startMonth}, #{payMonth}, 
+			#{pay}, #{house}, #{protection}, #{generation}, 
+			#{houseDescription}, #{consultDescription} 
+		);
+	</insert>
+	
+	<select id="getRecentHelpSeq" resultType="int">
+		SELECT max(seq) FROM helpList;
+	</select>
+	
+	
+	<insert id="insertFamilyList" parameterType="Family">
+		INSERT INTO house (
+			helpList_seq, relation, famName, age, job, liveWith, etc
+		) values (
+			#{helpSeq}, #{relation}, #{famName}, #{age}, 
+			#{job}, #{liveWith}, #{etc}
+		);
+	</insert>
+	
+	
+	<select id="findTarget" parameterType="string" resultType="HelpList">
+		SELECT seq, type, volunteer, target, sex, age, 
+			   generation, address FROM helpList 
+		<where>
+			target LIKE CONCAT('%', #{name}, '%')
+		</where>
+	</select>
+	
+	<select id="findVolunteer" parameterType="string" resultType="HelpList">
+		SELECT seq, type, volunteer, target, sex, age, 
+			   generation, address FROM helpList  
+		<where>
+			volunteer LIKE CONCAT('%', #{name}, '%')
+		</where>
+	</select>
+	
+	
+	<select id="detailInformation" parameterType="int" resultType="HelpList">
+		SELECT * FROM helpList 
+		<where>
+			seq = #{seq}
+		</where>
+	</select>
+	
+	
+	<select id="detailFamilyInformation" parameterType="int" resultType="Family">
+		SELECT * FROM house 
+		<where>
+			helpList_seq = #{id}
+		</where>
+	</select>
+	
+	
+	<select id="getHelpListByType" parameterType="string" resultType="HelpList">
+		SELECT seq, type, volunteer, target, sex, age, generation, address
+		FROM helpList
+		<where>
+			type = #{type}
+		</where>
+	</select>
+	
+	
+	<select id="getHelpListAll" resultType="HelpList">
+		SELECT seq, type, volunteer, target, sex, age, generation 
+		FROM helpList
+	</select>
+	
+	
+	<select id="getStatusList" parameterType="string" resultMap="listTypeHeader">
+		SELECT count(type) AS num FROM helpList
+		<where>
+			type = #{type}
+		</where>
+	</select>
+	
+	
+	<select id="getStatusAll" resultMap="listTypeHeader">
+		SELECT count(*) AS num FROM helpList
+	</select>
+	
+	
+	<delete id="deleteFamilyList" parameterType="int">
+		DELETE FROM house 
+		<where>
+			helpList_seq = #{seq}
+		</where>
+	</delete>
+	
+	
+	<update id="updateHelpList" parameterType="HelpList">
+		UPDATE helpList SET 
+			type = #{type}, 
+			volunteer = #{volunteer}, volunteerTel = #{volunteerTel}, applicant = #{applicant}, applicantTel = #{applicantTel}, 
+			target = #{target}, targetTel = #{targetTel}, address = #{address}, 
+			livingCase = #{livingCase}, sex = #{sex}, age = #{age}, startMonth = #{startMonth}, payMonth = #{payMonth},
+			pay = #{pay}, house = #{house}, protection = #{protection}, generation = #{generation},
+			houseDescription = #{houseDescription}, consultDescription = #{consultDescription}
+		<where>
+			seq = #{seq}
+		</where>
+	</update>
+	
+	<delete id="deleteHelpList" parameterType="hashmap">
+		DELETE FROM helpList 
+		
+		<where>
+			<foreach collection="seqList" item="item" index="index" open="(" close=")" separator="OR">
+				seq = ${seqList[index]} 
+			</foreach>
+		</where>
+	</delete>
+	<!-- 
+	
+	
+
+	
+	
+	
+	<select id="getHeader" parameterType="string" resultMap="header">
+		SELECT count(type) AS num, type FROM helpList
+		<where>
+			type = #{type}
+		</where>
+	</select>
+	
+	
+	
+
+	
+	
+	
+	<select id="getFamilyData" parameterType="string" resultType="Family">
+		SELECT * FROM house 
+		<where>
+			helpList_seq = #{helpSeq}
+		</where>
+	</select>
+	 -->
+	
+</mapper>
