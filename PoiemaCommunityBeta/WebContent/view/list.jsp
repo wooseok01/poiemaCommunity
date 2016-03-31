@@ -11,6 +11,7 @@
 <title>사회봉사부 명단</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
 <link rel="stylesheet" href="../css/list.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 <body>
   <form action="../main/find" method="post">
@@ -28,8 +29,8 @@
   </form>
   
   <div id="btnContainer">
-    <input type="button" value="+추가" id="addPerson">
-    <input type="button" value="-삭제" id="deletePerson">
+    <input type="button" value="+추가" id="addBtn" onclick="addBtnClick();">
+    <input type="button" value="-삭제" id="delBtn" onclick="delBtnClick();">
   </div>
   
   <table>
@@ -123,7 +124,11 @@
       </c:choose>
     </tbody>
   </table>
+  
+  <div id="dialog"></div>
   <script src="//code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../js/btnInterface.js"></script>
   <script type="text/javascript" src="../js/list.js"></script>
 </body>
 </html>

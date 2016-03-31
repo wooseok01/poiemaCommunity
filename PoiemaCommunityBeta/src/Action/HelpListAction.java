@@ -260,6 +260,7 @@ public class HelpListAction {
 				}
 				helpListDao.deleteHelpList(seqList);
 			}
+			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("utf-8");
 			JSONArray jsonArray = new JSONArray();

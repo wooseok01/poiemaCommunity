@@ -1,12 +1,19 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import com.ibatis.common.resources.Resources;
 
 import Action.HelpListAction;
 import Action.LoginOutAction;
@@ -17,7 +24,8 @@ import Action.LoginOutAction;
 @WebServlet("/main/*")
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static SqlSessionFactory sqlSessionFactory;
+	
     public MainController() {
         super();
     }
@@ -54,10 +62,8 @@ public class MainController extends HttpServlet {
 			}else if(path.equals("/listType")){
 				helpListAction.listType(request, response);
 			}else if(path.equals("/getFamilyData")){
-				System.out.println("getFamilyData!!!");
 				helpListAction.getFamilyData(request, response);
 			}else if(path.equals("/deleteHelpList")){
-				System.out.println("helpList delete!!");
 				helpListAction.deleteHelpList(request, response);
 			}
 			

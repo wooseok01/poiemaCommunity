@@ -9,7 +9,6 @@
 	<servlet>
 		<servlet-name>MyBatisInitializer</servlet-name>
 		<servlet-class>Setup.MybatisSessionFactory</servlet-class>
-
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 

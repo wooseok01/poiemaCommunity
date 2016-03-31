@@ -112,3 +112,7 @@ thead > tr > td{
 .btnContainer > input:HOVER{
     cursor: pointer;
 }
+
+#dialog{
+    display : hidden;
+}
