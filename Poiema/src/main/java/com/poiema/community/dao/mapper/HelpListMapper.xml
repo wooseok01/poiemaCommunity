@@ -10,6 +10,20 @@
 	<resultMap type="hashmap" id="header">
 		<result javaType="string" column="num" property="num"/>
 	</resultMap>
+	
+	<resultMap type="hashmap" id="livingCaseObject">
+		<result javaType="int" column="seq" property="seq"/>
+		<result javaType="string" column="livingCase" property="livingCase"/>
+		<result javaType="string" column="type" property="type"/>
+		<result javaType="string" column="volunteer" property="volunteer"/>
+		<result javaType="string" column="target" property="target"/>
+		<result javaType="string" column="sex" property="sex"/>
+		<result javaType="int" column="age" property="age"/>
+		<result javaType="string" column="generation" property="generation"/>
+		<result javaType="string" column="address" property="address"/>
+	</resultMap>
+	
+	
 
 	<insert id="save" parameterType="HelpList">
 		INSERT INTO helpList(
@@ -135,32 +149,13 @@
 			</foreach>
 		</where>
 	</delete>
-	<!-- 
 	
-	
-
-	
-	
-	
-	<select id="getHeader" parameterType="string" resultMap="header">
-		SELECT count(type) AS num, type FROM helpList
+	<select id="findHelpListByLivingCase" parameterType="string" resultMap="livingCaseObject">
+		SELECT seq, livingCase, type, volunteer, target, sex, age, generation, address    
+		FROM helpList 
 		<where>
-			type = #{type}
+			livingCase = #{livingCase}
 		</where>
 	</select>
-	
-	
-	
-
-	
-	
-	
-	<select id="getFamilyData" parameterType="string" resultType="Family">
-		SELECT * FROM house 
-		<where>
-			helpList_seq = #{helpSeq}
-		</where>
-	</select>
-	 -->
 	
 </mapper>

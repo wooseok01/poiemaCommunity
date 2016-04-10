@@ -1,6 +1,7 @@
 package com.poiema.community;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.poiema.community.action.DetailInformationAction;
 import com.poiema.community.action.FindHelpListAction;
 import com.poiema.community.action.FindListTypeAction;
+import com.poiema.community.action.FindLivingCaseAction;
 import com.poiema.community.action.LoginAction;
 import com.poiema.community.action.MainDataAction;
 import com.poiema.community.action.SaveHelpListAction;
@@ -125,7 +127,7 @@ public class HomeController {
 		ArrayList<Family> familyList = action.detailFamilyInformation(seq);
 		
 		JSONArray jsonArray = JSONArray.fromObject(familyList);
-		System.out.println(jsonArray);
+		
 		return jsonArray;
 	}
 	
@@ -236,6 +238,32 @@ public class HomeController {
 		
 		return result;
 	}
+	
+	@RequestMapping(value = "/findLivingCase", method = RequestMethod.GET)
+	public String findLivingCase(Model model, HttpServletRequest request){
+		
+		return sessionCheck("livingCase", request);
+	}
+	
+	@RequestMapping(value = "/findHelpListByLivingCase", method = RequestMethod.POST)
+	public @ResponseBody JSONArray findHelpListByLivingCase(HttpServletRequest request, 
+			@RequestParam(value = "livingCase", defaultValue = "high") String livingCase){
+		
+		System.out.println(livingCase);
+		FindLivingCaseAction action = new FindLivingCaseAction(helpListDao);
+		
+		ArrayList<HashMap<Object, Object>> livingCaseList = action.findHelpListByLivingCase(livingCase);
+		
+		JSONArray array = new JSONArray();
+		array = JSONArray.fromObject(livingCaseList);
+		System.out.println(array);
+		return array;
+	}
+	
+	
+	
+	
+	
 	
 //	normal function
 	public String sessionCheck(String targetJsp, HttpServletRequest request){

@@ -194,7 +194,7 @@
             <option value="5">조손가정</option>
             <option value="6">다문화</option>
             <option value="7">소년,소녀 가장</option>
-            <option value="8">새터민</option>
+            <option value="8">장애우가정</option>
             <option value="9">일반가정</option>
           </select>
         </label><br>
@@ -227,10 +227,10 @@
           수입 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" id="pay" name="pay" value="${helpList.pay}">만원
+              <input type="text" id="pay" name="pay" value="${helpList.pay}">
             </c:when>
             <c:otherwise>
-              <input type="text" id="pay" name="pay">만원
+              <input type="text" id="pay" name="pay">
             </c:otherwise>
           </c:choose>
         </label><br>

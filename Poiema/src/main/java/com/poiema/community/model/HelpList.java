@@ -18,7 +18,7 @@ public class HelpList implements Serializable{
 	private int age;
 	private Date startMonth;
 	private Date payMonth;
-	private int pay;
+	private String pay;
 	private String house;
 	private String protection;
 	private String generation;
@@ -29,7 +29,7 @@ public class HelpList implements Serializable{
 	
 	public HelpList(int seq, String type, String volunteer, String volunteerTel, String applicant, String applicantTel,
 			String target, String targetTel, String address, String livingCase, String sex, int age, Date startMonth,
-			Date payMonth, int pay, String house, String protection, String generation, byte[] houseDescription,
+			Date payMonth, String pay, String house, String protection, String generation, byte[] houseDescription,
 			byte[] consultDescription) {
 		super();
 		this.seq = seq;
@@ -54,8 +54,8 @@ public class HelpList implements Serializable{
 		this.consultDescription = consultDescription;
 	}
 
-	public int getPay() {return pay;}
-	public void setPay(int pay) {this.pay = pay;}
+	public String getPay() {return pay;}
+	public void setPay(String pay) {this.pay = pay;}
 
 	public String getHouse() {return house;}
 	public void setHouse(String house) {this.house = house;}

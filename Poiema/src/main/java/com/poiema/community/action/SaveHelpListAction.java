@@ -85,11 +85,7 @@ public class SaveHelpListAction {
 			payMonth = changeStringToDate(request.getParameter("payMonth"));
 		}
 		
-		int pay = 0;
-		if(request.getParameter("pay") != null){
-			pay = Integer.parseInt(request.getParameter("pay"));
-		}
-		
+		String pay = request.getParameter("pay");
 		String house = request.getParameter("house");
 		String protection = request.getParameter("protection");
 		String generation = request.getParameter("generation");

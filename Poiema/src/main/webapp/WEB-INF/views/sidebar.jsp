@@ -27,6 +27,11 @@
             <a href="./findListType?type=none">&nbsp; 미연결 명단</a>
             <a href="./findListType?type=all">&nbsp; 전체 명단</a>
           </div>
+        </li>
+        <li>
+          <a href="./findLivingCase">생활구분 검색</a>
+        </li>
+        <li>
           <a href="./logout" id="logoutBtn">로그아웃!</a>
         </li>
       </ul>

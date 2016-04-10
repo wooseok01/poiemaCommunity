@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+body{
+    width : 100%;
+    height : 1200px;
+}
+
+#contentDiv{
+    width : 82%;
+    height : 100%;
+    background-color: rgb(231, 235, 238);
+    padding-top : 30px;
+}
+
+#header{
+    width : 400px;
+    height : 50px;
+    margin : 0 auto;
+}
+
+select{
+    width : 80px;
+    height : 100%;
+    margin-right : 10px;
+}
+
+option{
+    font-size: 24px;
+}
+
+h2{
+    display : inline;
+}
+
+#tableDiv{
+    width : 80%;
+    height : 500px;
+    margin : 0 auto;
+    background-color : white;
+    border-radius : 8px;
+    margin-top : 30px;
+}
+
+#noData{
+    text-align: center;
+}

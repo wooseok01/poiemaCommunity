@@ -21,6 +21,7 @@ public interface HelpListDaoInterface {
 	ArrayList<HelpList> getHelpListAll();
 	void deleteFamilyList(int seq);
 	void updateHelpList(HelpList helpList);
-	void deleteHelpList(HashMap<String, int[]> map); 
+	void deleteHelpList(HashMap<String, int[]> map);
+	ArrayList<HashMap<Object, Object>> findHelpListByLivingCase(String livingCase); 
 
 }
