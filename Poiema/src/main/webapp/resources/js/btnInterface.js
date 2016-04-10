@@ -64,6 +64,7 @@ function logoutBtnClick(){
 }
 
 function delBtnClick(){
+	console.log($(':checkbox:checked').length);
 	if($(':checkbox:checked').length != 0){
 		$('#dialog').html($(':checkbox:checked').length+'개를 삭제하시겠습니까?');
 		$('#dialog').dialog('open');

@@ -51,7 +51,7 @@
     </div>
     
     <div id="btnContainer">
-      <input type="button" class="btn btn-danger" value="삭제">
+      <input type="button" class="btn btn-danger" value="삭제" onclick="delBtnClick();">
     </div>
     
     <div id="tableContent">
@@ -125,7 +125,7 @@
                       <td>소년,소녀 가장</td>
                     </c:when>
                     <c:when test="${person.generation eq 8}">
-                      <td>새터민</td>
+                      <td>장애루 가정</td>
                     </c:when>
                     <c:when test="${person.generation eq 9}">
                       <td>일반가정</td>
@@ -145,8 +145,8 @@
         </tbody>
       </table>
     </div>
-    
   </div>
+  <div id="dialog" style="display: none;"></div>
 <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="resources/js/btnInterface.js"></script>

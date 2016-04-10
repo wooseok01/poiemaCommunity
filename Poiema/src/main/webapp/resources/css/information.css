@@ -10,20 +10,26 @@ body{
 }
 
 label{
-    font-size: 10px;
+    font-size: 14px;
 }
 
 h1{
+    font-weight : bolder;
     text-align: center;
 }
 
+legend{
+    font-weight: bold;
+    color : rgb(0, 0, 255);
+}
+
 input{
-    margin-right : 20px;
-    width : 60px;
+    margin-right : 10px;
+    width : 80px;
 }
 
 .phone{
-    width : 100px;
+    width : 120px;
 }
 
 #typeList{
@@ -31,7 +37,7 @@ input{
 }
 
 #addressBox{
-    width : 350px;
+    width : 300px;
 }
 
 select{
@@ -75,12 +81,20 @@ fieldset{
     margin-bottom : 20px;
 }
 
+#houseDescript{
+    height : 150px;
+}
+
+#houseDescript > textarea{
+    height : 50%;
+}
+
 .relation{
     width : 70px;
 }
 
 .etc{
-    width : 150px;
+    width : 100px;
 }
 
 textarea{

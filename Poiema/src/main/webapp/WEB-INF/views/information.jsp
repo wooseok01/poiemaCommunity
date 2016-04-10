@@ -269,7 +269,7 @@
         </c:forEach>
       </div>
       
-      <div class="dataFieldMore">
+      <div class="dataFieldMore" id="houseDescript">
         <fieldset>
           <legend>생활사 입력란</legend>
         </fieldset>

@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/sidebar.css">
 <link rel="stylesheet" href="resources/css/list.css">
-<link rel="stylesheet" href="resources/header.css">
 </head>
 <body>
   <jsp:include page="sidebar.jsp"></jsp:include>
@@ -124,7 +123,7 @@
         </table>
       </div>
   </div>
-  <div id="dialog"></div>
+  <div id="dialog" style="display: none;"></div>
   
   <script src="https://code.jquery.com/jquery.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
