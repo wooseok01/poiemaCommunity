@@ -2,13 +2,12 @@
 http://html5.litten.com/graphing-data-in-the-html5-canvas-element-part-iv-simple-pie-charts/
 */
 
-var myColor = ["#39ca74","#e54d42","#f0c330","#3999d8","#35485d"];
+var myColor = ["rgb(221,70,32)","rgb(39,170,102)","rgb(238,193,65)"];
 var aType = $('.A').val()*1;
 var bType = $('.B').val()*1;
 var loveType = $('.love').val()*1;
-var noneType = $('.none').val()*1;
-var myData = [aType,bType,loveType,noneType];
-var myLabel = ["A유형","B유형","사랑목장","미연결"];
+var myData = [aType,bType,loveType];
+var myLabel = ["A유형","B유형","사랑목장"];
 
 function getTotal(){
   var myTotal = 0;

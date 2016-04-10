@@ -14,36 +14,43 @@
 <body>
   <jsp:include page="sidebar.jsp"></jsp:include>
   <div id="contentDiv">
-    <h1><a href="./myPage">${user.userName}</a>님 환영합니다^^</h1>
-    <div id="totalBar">
-      <c:forEach var="status" items="${statusList}">
-        <input type="text" class="hidden ${status.type}" value="${status.num}">
-        <div class="totalList">
-          <c:choose>
-            <c:when test="${status.type eq 'all'}">
-              <h3>전체인원</h3>
-            </c:when>
-            <c:when test="${status.type eq 'love'}">
-              <h3>사랑목장</h3>
-            </c:when>
-            <c:when test="${status.type eq 'none'}">
-              <h3>미연결 인원</h3>
-            </c:when>
-            <c:otherwise>
-              <h3>${status.type}인원</h3>
-            </c:otherwise>
-          </c:choose>
-          <h4>${status.num}명</h4>
-        </div>
-      </c:forEach>
+    <div>
+      <h3><a href="./myPage">${user.userName}</a>님으로 로그인 하셨습니다.</h3>
     </div>
     
     <div id="graph">
-      <p id="graphTitle">사회봉사부 대상자 인원 분포 그래프</p>
-      <canvas id="canvas" width="600" height="400">
-        No Love for HTML5 eh?
-      </canvas>
-      <p>성경 구절 하나 넣으면 좋을거 같아요 아빠</p>
+      <p id="graphTitle">사랑의 물품 대상자 현황</p>
+      <div id="totalBar">
+        <c:forEach var="status" items="${statusList}">
+          <div class="totalList">
+            <input type="text" value="${status.num}" class="${status.type}" style="display : none;">
+            <div class="statusType"></div>
+            <div class="statusNum">
+              <c:choose>
+                <c:when test="${status.type eq 'A' }">
+                  A유형(${status.num}명)
+                </c:when>
+                <c:when test="${status.type eq 'B' }">
+                  B유형(${status.num}명)
+                </c:when>
+                <c:when test="${status.type eq 'love'}">
+                  사랑목장(${status.num}명)
+                </c:when>
+                <c:when test="${status.type eq 'all'}">
+                  전체명단(${status.num}명)
+                </c:when>
+              </c:choose>
+            </div>
+            <div class="headLine"></div>
+          </div>
+        </c:forEach>
+      </div>
+      <div>
+        <canvas id="canvas" width="600" height="400">
+          jquery pie graph플러그인을 지원하지 않습니다.
+          chrome혹은 explorer11 이상의 브라우저로 접속 바랍니다.
+        </canvas>
+      </div>
     </div>
     
   </div>

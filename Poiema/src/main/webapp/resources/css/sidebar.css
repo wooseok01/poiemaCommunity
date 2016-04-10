@@ -24,7 +24,8 @@ body > div{
 #sidebar-wrapper {
 	width: 100%;
 	height: 100%;
-	background: rgb(21, 93, 130);
+	/* background: rgb(21, 93, 130); */
+	background : linear-gradient(-90deg ,rgb(15, 72, 94), rgb(27, 94, 130));
 }
  
 #page-content-wrapper{
@@ -84,6 +85,11 @@ body > div{
     font-weight: normal;
     padding-left : 10px;
 }
+
+#logoutBtn{
+    margin-top : 20px;
+}
+
 a{
     cursor: pointer;
 }

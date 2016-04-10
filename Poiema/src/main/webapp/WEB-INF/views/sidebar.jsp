@@ -27,7 +27,7 @@
             <a href="./findListType?type=none">&nbsp; 미연결 명단</a>
             <a href="./findListType?type=all">&nbsp; 전체 명단</a>
           </div>
-          <a href="./logout">로그아웃!</a>
+          <a href="./logout" id="logoutBtn">로그아웃!</a>
         </li>
       </ul>
     </div>

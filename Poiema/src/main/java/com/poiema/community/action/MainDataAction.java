@@ -22,7 +22,7 @@ public class MainDataAction {
 	}
 	
 	public void getMainMetaData(Model model, HttpServletRequest request){
-		String arr[] = {"A", "B", "love", "none", "all"};
+		String arr[] = {"A", "B", "love", "all"};
 		
 		ArrayList<HashMap<String, String>> statusList = 
 				helpListDao.getStatusListByType(arr);
