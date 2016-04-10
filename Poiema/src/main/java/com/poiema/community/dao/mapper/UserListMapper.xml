@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.poiema.community.mapper.UserDaoInterface">
+
+	 <select id="loginCheck" resultType="int" parameterType="UserList" >
+		SELECT count(*) FROM userList 
+		<where> 
+			ID = #{id} AND
+			PWD = #{pwd}
+		</where>
+	</select>
+	
+	<select id="getUserData" resultType="UserList" parameterType="hashmap">
+		SELECT * FROM userList
+		<where>
+			ID = #{id} AND
+			PWD = #{pwd}
+		</where>
+	</select>
+	
+	<update id="changeMyData" parameterType="hashmap">
+		UPDATE userList SET 
+		pwd = #{pwd}, userName = #{userName} 
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	
+</mapper>
