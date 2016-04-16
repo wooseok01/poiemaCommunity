@@ -1,54 +1,62 @@
 $(document).ready(function(){
+	var livingCase = $('option:selected').val()
+	ajaxCall(livingCase)
+	
 	$('#select').change(function(){
-		
-		var livingCase = $(this).val();
-		console.log(livingCase);
-		$.ajax({
-			url : './findHelpListByLivingCase',
-			type : 'POST',
-			dataType : 'json',
-			data : {
-				'livingCase' : livingCase
-			},
-			success : function(data){
-				var tbody = $('#tbody');
-				tbody.empty();
-				
-				
-				$.each(data, function(index, object){
-					var tr = $('<tr></tr>');
-					
-					var checkBox = $('<td></td>').append($('<input type="checkbox">'));
-					var seq = $('<td></td>').append($('<input type="text" class="hidden"/>').val(object.seq).css('display','none'));
-					var generation = $('<td></td>').html(generationSwitch(object.generation));
-					var volunteer = $('<td></td>').html(object.volunteer);
-					var address = $('<td></td>').html(object.address);
-					var sex = $('<td></td>').html(sexSwitch(object.sex));
-					var type = $('<td></td>').html(typeSwitch(object.type));
-					var age = $('<td></td>').html(object.age);
-					var livingCase = $('<td></td>').html(livingCaseSwitch(object.livingCase));
-					var target = $('<td class="target"></td>').html(object.target);
-					tr.append(checkBox);
-					tr.append($('<td></td>').html(index+1));
-					tr.append(livingCase);
-					tr.append(type);
-					tr.append(volunteer);
-					tr.append(target);
-					tr.append(sex);
-					tr.append(age);
-					tr.append(generation);
-					tr.append(address);
-					
-					tbody.append(tr);
-				});
-				
-				
-			},
-			error:function(request,status,error){
-			    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
-		});
+		ajaxCall($(this).val())
 	});
 });
+
+
+function ajaxCall(livingCase){
+	$.ajax({
+		url : './findHelpListByLivingCase',
+		type : 'POST',
+		dataType : 'json',
+		data : {
+			'livingCase' : livingCase
+		},
+		success : function(data){
+			var tbody = $('#tbody');
+			tbody.empty();
+			
+			$.each(data, function(index, object){
+				var tr = $('<tr></tr>');
+				var seq = $('<td></td>').html(object.seq).css('display','none').attr('class','hidden');
+				var checkBox = $('<td></td>').append($('<input type="checkbox">'));
+				var volunteer = $('<td></td>').html(object.volunteer);
+				var address = $('<td></td>').html(object.address);
+				var sex = $('<td></td>').html(sexSwitch(object.sex));
+				var type = $('<td></td>').html(typeSwitch(object.type));
+				var age = $('<td></td>').html(object.age);
+				var livingCase = $('<td></td>').html(livingCaseSwitch(object.livingCase));
+				var target = $('<td class="target"></td>').html(object.target);
+				
+				target.click(function(){
+					var id = $(this).parent().find('.hidden').html();
+					console.log(id);
+					location.href = './detail?id='+id;
+				});
+				
+				tr.append(checkBox);
+				tr.append(seq);
+				tr.append($('<td></td>').html(index+1));
+				tr.append(livingCase);
+				tr.append(type);
+				tr.append(target);
+				tr.append(volunteer);
+				tr.append(sex);
+				tr.append(age);
+				tr.append(address);
+				
+				tbody.append(tr);
+			});
+		},
+		error:function(request,status,error){
+		    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
+	}); //end ajax
+} 
+
 
 function generationSwitch(generation){
 	switch(generation){

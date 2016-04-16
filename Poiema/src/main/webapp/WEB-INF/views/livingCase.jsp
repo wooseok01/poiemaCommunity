@@ -29,15 +29,14 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <td>체크</td>
+            <td>#</td>
             <td>No</td>
             <td>생활구분</td>
             <td>유형</td>
-            <td>봉사자</td>
             <td>대상자</td>
+            <td>봉사자</td>
             <td>성별</td>
             <td>나이</td>
-            <td>세대구분</td>
             <td>주소</td>
           </tr>
         </thead>

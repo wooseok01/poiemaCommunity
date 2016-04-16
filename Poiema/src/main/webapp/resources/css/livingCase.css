@@ -39,8 +39,28 @@ h2{
     background-color : white;
     border-radius : 8px;
     margin-top : 30px;
+    overflow: scroll;
 }
 
 #noData{
     text-align: center;
+}
+
+table{
+    font-size : 14px;
+}
+
+thead,
+tbody{
+    text-align: center;
+}
+
+.target{
+    font-weight: bold;
+    color: rgb(56,117,215);
+}
+
+.target:HOVER {
+    cursor: pointer;
+    color : rgb(21, 93, 130);
 }

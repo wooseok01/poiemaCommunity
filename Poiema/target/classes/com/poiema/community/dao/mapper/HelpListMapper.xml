@@ -19,7 +19,6 @@
 		<result javaType="string" column="target" property="target"/>
 		<result javaType="string" column="sex" property="sex"/>
 		<result javaType="int" column="age" property="age"/>
-		<result javaType="string" column="generation" property="generation"/>
 		<result javaType="string" column="address" property="address"/>
 	</resultMap>
 	
@@ -64,6 +63,7 @@
 		<where>
 			target LIKE CONCAT('%', #{name}, '%')
 		</where>
+		 ORDER BY type, volunteer
 	</select>
 	
 	<select id="findVolunteer" parameterType="string" resultType="HelpList">
@@ -72,6 +72,7 @@
 		<where>
 			volunteer LIKE CONCAT('%', #{name}, '%')
 		</where>
+		ORDER BY type, target
 	</select>
 	
 	
@@ -97,12 +98,14 @@
 		<where>
 			type = #{type}
 		</where>
+		ORDER BY target
 	</select>
 	
 	
 	<select id="getHelpListAll" resultType="HelpList">
 		SELECT seq, type, volunteer, target, sex, age, generation 
 		FROM helpList
+		ORDER BY type, target
 	</select>
 	
 	
@@ -151,11 +154,11 @@
 	</delete>
 	
 	<select id="findHelpListByLivingCase" parameterType="string" resultMap="livingCaseObject">
-		SELECT seq, livingCase, type, volunteer, target, sex, age, generation, address    
+		SELECT seq, livingCase, type, volunteer, target, sex, age, address    
 		FROM helpList 
 		<where>
 			livingCase = #{livingCase}
 		</where>
+		ORDER BY type, target
 	</select>
-	
 </mapper>

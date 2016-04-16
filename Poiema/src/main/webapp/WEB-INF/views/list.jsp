@@ -33,11 +33,11 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <td>체크</td>
+              <td>#</td>
               <td>No</td>
               <td>유형</td>
-              <td>봉사자</td>
               <td>대상자</td>
+              <td>봉사자</td>
               <td>성별</td>
               <td>나이</td>
               <td>세대구분</td>
@@ -66,8 +66,8 @@
                       <td>미연결</td>
                     </c:when>
                   </c:choose>
-                  <td>${person.volunteer}</td>
                   <td class="target">${person.target}</td>
+                  <td>${person.volunteer}</td>
                   <c:choose>
                     <c:when test="${person.sex eq 'M'}">
                       <td>남자</td>

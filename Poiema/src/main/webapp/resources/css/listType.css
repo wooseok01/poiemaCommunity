@@ -46,6 +46,11 @@ h1,h2{
     overflow: scroll;
 }
 
+.target{
+    font-weight: bold;
+    color: rgb(56,117,215);
+}
+
 .target:HOVER{
     cursor: pointer;
     color : rgb(21, 93, 130);
