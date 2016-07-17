@@ -13,7 +13,7 @@
 </head>
 <body>
   <img alt="indexLogo" src="community/resources/img/poiema_logo.png">
-  <form action="./login" method="post">
+  <form action="community/login" method="post">
     <img alt="jesusImage" src="community/resources/img/jesusImg.PNG">
     <input type="text" name="id" class="form-control" placeholder="아이디">
     <input type="password" name="pwd" class="form-control" placeholder="비밀번호">

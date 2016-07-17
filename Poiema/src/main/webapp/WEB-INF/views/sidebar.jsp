@@ -12,7 +12,7 @@
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li id ="mainList" class="sidebar-brand">
-          <a href="./main" id="mainListA"><img alt="poiemaLogo" src="community/resources/img/poiema_logo.jpg"></a>
+          <a href="./main" id="mainListA"><img alt="poiemaLogo" src="resources/img/poiema_logo.jpg"></a>
         </li>
         <li><a href="./information" class="li">명단 추가</a></li>
         <li><a href="./list" class="li">성명 검색</a></li>

@@ -8,8 +8,8 @@
   <title>메인페이지</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="community/resources/css/sidebar.css">
-  <link rel="stylesheet" href="community/resources/css/main.css">
+  <link rel="stylesheet" href="resources/css/sidebar.css">
+  <link rel="stylesheet" href="resources/css/main.css">
 </head>
 <body>
   <jsp:include page="sidebar.jsp"></jsp:include>
@@ -57,8 +57,8 @@
   
   <script src="https://code.jquery.com/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="community/resources/js/btnInterface.js"></script>
-  <script type="text/javascript" src="community/resources/js/main.js"></script>
-  <script type="text/javascript" src="community/resources/js/pieGraph.js"></script>
+  <script type="text/javascript" src="resources/js/btnInterface.js"></script>
+  <script type="text/javascript" src="resources/js/main.js"></script>
+  <script type="text/javascript" src="resources/js/pieGraph.js"></script>
 </body>
 </html>

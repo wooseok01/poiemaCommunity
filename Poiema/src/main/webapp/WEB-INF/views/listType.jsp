@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="community/resources/css/sidebar.css">
-<link rel="stylesheet" href="community/resources/css/listType.css">
+<link rel="stylesheet" href="resources/css/sidebar.css">
+<link rel="stylesheet" href="resources/css/listType.css">
 </head>
 <body>
   <jsp:include page="sidebar.jsp"></jsp:include>
@@ -54,7 +54,7 @@
       <input type="button" class="btn btn-danger" value="삭제" onclick="delBtnClick();">
       <input type="button" class="btn btn-success" 
              value="인쇄" 
-             onclick="printBtnClick('tableContent', 'community/resources/css/listType.css');">
+             onclick="printBtnClick('tableContent', 'resources/css/listType.css');">
     </div>
     
     <div id="tableContent">
@@ -152,8 +152,8 @@
   <div id="dialog" style="display: none;"></div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<script type="text/javascript" src="community/resources/js/jquery.printElement.js"></script>
-<script type="text/javascript" src="community/resources/js/btnInterface.js"></script>
-<script type="text/javascript" src="community/resources/js/listType.js"></script>
+<script type="text/javascript" src="resources/js/jquery.printElement.js"></script>
+<script type="text/javascript" src="resources/js/btnInterface.js"></script>
+<script type="text/javascript" src="resources/js/listType.js"></script>
 </body>
 </html>
