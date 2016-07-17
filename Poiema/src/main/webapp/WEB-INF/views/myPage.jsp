@@ -9,8 +9,8 @@
 </head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="resources/css/sidebar.css">
-  <link rel="stylesheet" href="resources/css/myPage.css">
+  <link rel="stylesheet" href="community/resources/css/sidebar.css">
+  <link rel="stylesheet" href="community/resources/css/myPage.css">
 <body>
   <jsp:include page="sidebar.jsp"></jsp:include>
   <div id="contentDiv">
@@ -26,6 +26,6 @@
 
   <script src="https://code.jquery.com/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="resources/js/myPage.js"></script>
+  <script type="text/javascript" src="community/resources/js/myPage.js"></script>
 </body>
 </html>

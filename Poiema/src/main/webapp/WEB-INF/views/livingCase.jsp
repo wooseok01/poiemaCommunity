@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/sidebar.css">
-<link rel="stylesheet" href="resources/css/livingCase.css">
+<link rel="stylesheet" href="community/resources/css/sidebar.css">
+<link rel="stylesheet" href="community/resources/css/livingCase.css">
 </head>
 <body>
   <jsp:include page="sidebar.jsp"></jsp:include>
@@ -54,7 +54,7 @@
 
 <script src="https://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<script type="text/javascript" src="resources/js/btnInterface.js"></script>
-<script type="text/javascript" src="resources/js/livingCase.js"></script>
+<script type="text/javascript" src="community/resources/js/btnInterface.js"></script>
+<script type="text/javascript" src="community/resources/js/livingCase.js"></script>
 </body>
 </html>
