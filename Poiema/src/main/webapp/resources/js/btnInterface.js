@@ -74,8 +74,6 @@ function delBtnClick(){
 }
 
 function slideDownClick(li){
-	
-	
 	if($('#slideDown').css('display') == 'none'){
 		$(li).html('Type별 명단 &nbsp; &nbsp; -')
 		$('#slideDown').show();
@@ -83,6 +81,16 @@ function slideDownClick(li){
 		$(li).html('Type별 명단 &nbsp; &nbsp; +');
 		$('#slideDown').hide();
 	}
-	
+}
 
+
+function printBtnClick(printArea, cssArea){
+	console.log('#'+printArea);
+	console.log(cssArea);
+	$('#'+printArea).printElement({
+		printMode : 'popup',
+		overrideElementCSS : cssArea,
+		pageTitle : $('.printTitle').html(),
+		leaveOpen : false
+	})
 }

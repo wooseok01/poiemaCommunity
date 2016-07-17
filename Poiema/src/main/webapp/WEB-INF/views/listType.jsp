@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%request.setCharacterEncoding("UTF-8");
   int index = 0;%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,16 +26,16 @@
       <c:when test="${type ne null}">
         <c:choose>
           <c:when test="${type.type eq 'love'}">
-            <h1>사랑목장 사랑의 물품 대상자 명단</h1>
+            <h1 class="printTitle">사랑목장 사랑의 물품 대상자 명단</h1>
           </c:when>
           <c:when test="${type.type eq 'none'}">
-            <h1>미연결 사랑의 물품 대상자 명단</h1>
+            <h1 class="printTitle">미연결 사랑의 물품 대상자 명단</h1>
           </c:when>
           <c:when test="${type.type eq 'all'}">
-            <h1>전체 사랑의 물품 대상자 명단</h1>
+            <h1 class="printTitle">전체 사랑의 물품 대상자 명단</h1>
           </c:when>
           <c:otherwise>
-            <h1>${type.type}유형 사랑의 물품 대상자 명단</h1>
+            <h1 class="printTitle">${type.type}유형 사랑의 물품 대상자 명단</h1>
           </c:otherwise>
         </c:choose>
       </c:when>
@@ -52,6 +52,9 @@
     
     <div id="btnContainer">
       <input type="button" class="btn btn-danger" value="삭제" onclick="delBtnClick();">
+      <input type="button" class="btn btn-success" 
+             value="인쇄" 
+             onclick="printBtnClick('tableContent', 'resources/css/listType.css');">
     </div>
     
     <div id="tableContent">
@@ -147,8 +150,9 @@
     </div>
   </div>
   <div id="dialog" style="display: none;"></div>
-<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.printElement.js"></script>
 <script type="text/javascript" src="resources/js/btnInterface.js"></script>
 <script type="text/javascript" src="resources/js/listType.js"></script>
 </body>
