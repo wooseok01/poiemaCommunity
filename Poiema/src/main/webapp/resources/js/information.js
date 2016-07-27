@@ -4,6 +4,20 @@ $(document).ready(function(){
 	
 	var parameter = window.location.search.substring(1);
 	
+	$('.keyPressEvent').on('keypress', function(e){
+		if(e.which == 13){
+			var tableIndex = $(this).attr('tableIndex')*1;
+			tableIndex++;
+			$('.keyPressEvent').each(function(index, element){
+				if($(element).attr('tableIndex') == tableIndex){
+					$(element).focus();
+				}
+			});
+			
+			return false;
+		}
+	});
+	
 	if(parameter != ''){
 		var id = parameter.split('=');
 		
@@ -81,15 +95,16 @@ $(document).ready(function(){
 	
 	if($('#sex').html() != null || $('#sex').html() != ''){
 		sex = $('#sex').val();
+
 		switch(sex){
 			case 'F':
 			case 'f':
-				$('select[name=sex]').find('option').eq(0).attr('selected','selected');
+				$('select[name=sex]').find('option').eq(1).attr('selected','selected');
 				break;
-				
+
 			case 'M' :
 			case 'm' :
-				$('select[name=sex]').find('option').eq(1).attr('selected','selected');
+				$('select[name=sex]').find('option').eq(0).attr('selected','selected');
 				break;
 		}
 	}
@@ -114,23 +129,18 @@ $(document).ready(function(){
 	
 	if($('#protection').html() != null || $('#protection').html() != ''){
 		protection = $('#protection').val();
-		
+
 		switch(protection){
 		case '1' :
-			$('select[name=protection]').find('option').eq(0).attr('selected','selected');
-			break;
+			$('select[name=protection]').find('option').eq(0).attr('selected','selected');break;
 		case '2' :
-			$('select[name=protection]').find('option').eq(1).attr('selected','selected');
-			break;
+			$('select[name=protection]').find('option').eq(1).attr('selected','selected');break;
 		case '3' :
-			$('select[name=protection]').find('option').eq(2).attr('selected','selected');
-			break;
+			$('select[name=protection]').find('option').eq(2).attr('selected','selected');break;
 		case '4' :
-			$('select[name=protection]').find('option').eq(3).attr('selected','selected');
-			break;
+			$('select[name=protection]').find('option').eq(3).attr('selected','selected');break;
 		case '5' :
-			$('select[name=protection]').find('option').eq(4).attr('selected','selected');
-			break;
+			$('select[name=protection]').find('option').eq(4).attr('selected','selected');break;
 		}
 	}
 	

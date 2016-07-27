@@ -16,8 +16,8 @@ public class HelpList implements Serializable{
 	private String livingCase;
 	private String sex;
 	private int age;
-	private Date startMonth;
-	private Date payMonth;
+	private String startMonth;
+	private String payMonth;
 	private String pay;
 	private String house;
 	private String protection;
@@ -28,8 +28,8 @@ public class HelpList implements Serializable{
 	public HelpList(){}
 	
 	public HelpList(int seq, String type, String volunteer, String volunteerTel, String applicant, String applicantTel,
-			String target, String targetTel, String address, String livingCase, String sex, int age, Date startMonth,
-			Date payMonth, String pay, String house, String protection, String generation, byte[] houseDescription,
+			String target, String targetTel, String address, String livingCase, String sex, int age, String startMonth,
+			String payMonth, String pay, String house, String protection, String generation, byte[] houseDescription,
 			byte[] consultDescription) {
 		super();
 		this.seq = seq;
@@ -102,11 +102,11 @@ public class HelpList implements Serializable{
 	public int getAge() {return age;}
 	public void setAge(int age) {this.age = age;}
 
-	public Date getStartMonth() {return startMonth;}
-	public void setStartMonth(Date startMonth) {this.startMonth = startMonth;}
+	public String getStartMonth() {return startMonth;}
+	public void setStartMonth(String startMonth) {this.startMonth = startMonth;}
 
-	public Date getPayMonth() {return payMonth;}
-	public void setPayMonth(Date payMonth) {this.payMonth = payMonth;}
+	public String getPayMonth() {return payMonth;}
+	public void setPayMonth(String payMonth) {this.payMonth = payMonth;}
 
 	public byte[] getHouseDescription() {return houseDescription;}
 	public void setHouseDescription(byte[] houseDescription) {this.houseDescription = houseDescription;}

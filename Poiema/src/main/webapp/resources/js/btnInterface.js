@@ -94,3 +94,7 @@ function printBtnClick(printArea, cssArea){
 		leaveOpen : false
 	})
 }
+
+function getTableIndex(basic, index){
+	return basic+5*(index-1);
+}

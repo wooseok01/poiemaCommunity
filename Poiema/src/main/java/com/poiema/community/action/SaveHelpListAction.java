@@ -1,9 +1,6 @@
 package com.poiema.community.action;
 
 import java.io.UnsupportedEncodingException;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,14 +72,14 @@ public class SaveHelpListAction {
 			age = Integer.parseInt(request.getParameter("age"));
 		}
 		
-		Date startMonth = null;
+		String startMonth = null;
 		if(request.getParameter("startMonth") != null){
-			startMonth = changeStringToDate(request.getParameter("startMonth"));
+			startMonth = request.getParameter("startMonth");
 		}
 		
-		Date payMonth = null;
+		String payMonth = null;
 		if(request.getParameter("payMonth") != null){
-			payMonth = changeStringToDate(request.getParameter("payMonth"));
+			payMonth = request.getParameter("payMonth");
 		}
 		
 		String pay = request.getParameter("pay");
@@ -103,16 +100,6 @@ public class SaveHelpListAction {
 		return new HelpList(seq, type, volunteer, volunteerTel, applicant, applicantTel, 
 				target, targetTel, address, livingCase, sex, age, startMonth, payMonth, 
 				pay, house, protection, generation, houseDescription, consultDescription);
-	}
-	
-	private Date changeStringToDate(String format){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM");
-		
-		try {
-			java.util.Date date = dateFormat.parse(format);
-			return new Date(date.getTime());
-		} catch (ParseException e) {e.printStackTrace();}
-		return null;
 	}
 	
 	

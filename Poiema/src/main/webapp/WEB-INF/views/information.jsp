@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE>
 <html>
@@ -49,10 +48,10 @@
           봉사자 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" name="volunteer" value="${helpList.volunteer}">
+              <input type="text" name="volunteer" value="${helpList.volunteer}" tableIndex="1" class="keyPressEvent">
             </c:when>
             <c:otherwise>
-              <input type="text" name="volunteer">
+              <input type="text" name="volunteer" tableIndex="1" class="keyPressEvent">
             </c:otherwise>
           </c:choose>
         </label>
@@ -61,10 +60,10 @@
           봉사자 연락처 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" name="volunteerTel" value="${helpList.volunteerTel}" class="phone">
+              <input type="text" name="volunteerTel" value="${helpList.volunteerTel}" class="phone keyPressEvent" tableIndex="2">
             </c:when>
             <c:otherwise>
-              <input type="text" name="volunteerTel" class="phone">
+              <input type="text" name="volunteerTel" class="phone keyPressEvent" tableIndex="2">
             </c:otherwise>
           </c:choose>
         </label>
@@ -73,10 +72,10 @@
           신청인 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" name="applicant" value="${helpList.applicant}">
+              <input type="text" name="applicant" value="${helpList.applicant}" tableIndex="3" class="keyPressEvent">
             </c:when>
             <c:otherwise>
-              <input type="text" name="applicant">
+              <input type="text" name="applicant" tableIndex="3" class="keyPressEvent">
             </c:otherwise>
           </c:choose>
         </label>
@@ -85,10 +84,10 @@
           신청인 연락처 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="tel" name="applicantTel" value="${helpList.applicantTel}" class="phone">
+              <input type="tel" name="applicantTel" value="${helpList.applicantTel}" class="phone keyPressEvent" tableIndex="4">
             </c:when>
             <c:otherwise>
-              <input type="tel" name="applicantTel" class="phone">
+              <input type="tel" name="applicantTel" class="phone keyPressEvent" tableIndex="4">
             </c:otherwise>
           </c:choose>
         </label><br>
@@ -97,10 +96,10 @@
           대상자 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" name="target" value="${helpList.target}">
+              <input type="text" name="target" value="${helpList.target}" tableIndex="5" class="keyPressEvent">
             </c:when>
             <c:otherwise>
-              <input type="text" name="target">
+              <input type="text" name="target" tableIndex="5" class="keyPressEvent">
             </c:otherwise>
           </c:choose>
         </label>
@@ -109,10 +108,10 @@
           대상자 연락처 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" name="targetTel" value="${helpList.targetTel}" class="phone">
+              <input type="text" name="targetTel" value="${helpList.targetTel}" class="phone keyPressEvent" tableIndex="6">
             </c:when>
             <c:otherwise>
-              <input type="text" name="targetTel" class="phone">
+              <input type="text" name="targetTel" class="phone keyPressEvent" tableIndex="6">
             </c:otherwise>
           </c:choose>
         </label>
@@ -121,10 +120,10 @@
           주&nbsp;&nbsp;&nbsp;소 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" name="address" value="${helpList.address}" id="addressBox">
+              <input type="text" name="address" value="${helpList.address}" id="addressBox" class="keyPressEvent" tableIndex="7">
             </c:when>
             <c:otherwise>
-              <input type="text" name="address" id="addressBox">
+              <input type="text" name="address" id="addressBox" class="keyPressEvent" tableIndex="7">
             </c:otherwise>
           </c:choose>
         </label>
@@ -155,14 +154,14 @@
           나이 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" name="age" value="${helpList.age}">
+              <input type="text" name="age" value="${helpList.age}" class="keyPressEvent" tableIndex="8">
             </c:when>
             <c:otherwise>
-              <input type="text" name="age">
+              <input type="text" name="age" class="keyPressEvent" tableIndex="8">
             </c:otherwise>
           </c:choose>
         </label>
-        
+        <br/><br/>
         <label>
           주거사항 : 
           <select name="house">
@@ -197,16 +196,17 @@
             <option value="8">장애우가정</option>
             <option value="9">일반가정</option>
           </select>
-        </label><br>
+        </label>
         
+        <br/><br/>
         <label>
           신청월 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" name="startMonth" value='<fmt:formatDate value='${helpList.startMonth}' pattern='yyyy.MM'/>'>
+              <input type="text" name="startMonth" value='${helpList.startMonth}' class="keyPressEvent" tableIndex="9">
             </c:when>
             <c:otherwise>
-              <input type="text" name="startMonth" placeholder="ex)2016.03">
+              <input type="text" name="startMonth" placeholder="ex)2016.03" class="keyPressEvent" tableIndex="9">
             </c:otherwise>
           </c:choose>
         </label>
@@ -215,10 +215,10 @@
           지급월 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" name="startMonth" value='<fmt:formatDate value='${helpList.payMonth}' pattern='yyyy.MM'/>'>
+              <input type="text" name="startMonth" value='${helpList.payMonth}' class="keyPressEvent" tableIndex="10">
             </c:when>
             <c:otherwise>
-              <input type="text" name="payMonth" placeholder="ex)2016.03">
+              <input type="text" name="payMonth" placeholder="ex)2016.03" class="keyPressEvent" tableIndex="10">
             </c:otherwise>
           </c:choose>
         </label>
@@ -227,10 +227,10 @@
           수입 : 
           <c:choose>
             <c:when test="${helpList ne null}">
-              <input type="text" id="pay" name="pay" value="${helpList.pay}">
+              <input type="text" id="pay" name="pay" value="${helpList.pay}" class="keyPressEvent" tableIndex="11">
             </c:when>
             <c:otherwise>
-              <input type="text" id="pay" name="pay">
+              <input type="text" id="pay" name="pay" class="keyPressEvent" tableIndex="11">
             </c:otherwise>
           </c:choose>
         </label><br>
@@ -246,16 +246,16 @@
         </fieldset>
         <c:forEach var="i" begin="1" end="5">
           <label>관계 : 
-            <input type="text" name="relation${i}" class="relation" id="relation${i}">
+            <input type="text" name="relation${i}" class="relation keyPressEvent" id="relation${i}" tableIndex="${12+5*(i-1)}">
           </label>
           <label>성명 : 
-            <input type="text" name="famName${i}" class="relation" id="famName${i}">
+            <input type="text" name="famName${i}" class="relation keyPressEvent" id="famName${i}" tableIndex="${13+5*(i-1)}">
           </label>
           <label>나이 : 
-            <input type="text" name="age${i}" class="relation" id="age${i}">
+            <input type="text" name="age${i}" class="relation keyPressEvent" id="age${i}" tableIndex="${14+5*(i-1)}">
           </label>
           <label>직업 : 
-            <input type="text" name="job${i}" class="relation" id="job${i}">
+            <input type="text" name="job${i}" class="relation keyPressEvent" id="job${i}" tableIndex="${15+5*(i-1)}">
           </label>
           <label>동거여부 : 
             <select name="liveWith${i}">
@@ -264,7 +264,7 @@
             </select>
           </label>
           <label>
-            기타 : <input type="text" name="etc${i}" id="etc${i}" class="etc">
+            기타 : <input type="text" name="etc${i}" id="etc${i}" class="etc keyPressEvent" tableIndex="${16+5*(i-1)}">
           </label><br>
         </c:forEach>
       </div>
