@@ -161,7 +161,7 @@
             </c:otherwise>
           </c:choose>
         </label>
-        <br/><br/>
+        <br/>
         <label>
           주거사항 : 
           <select name="house">
@@ -198,7 +198,7 @@
           </select>
         </label>
         
-        <br/><br/>
+        <br/>
         <label>
           신청월 : 
           <c:choose>
