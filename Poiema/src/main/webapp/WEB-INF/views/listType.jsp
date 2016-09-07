@@ -128,7 +128,7 @@
                       <td>소년,소녀 가장</td>
                     </c:when>
                     <c:when test="${person.generation eq 8}">
-                      <td>장애루 가정</td>
+                      <td>장애우 가정</td>
                     </c:when>
                     <c:when test="${person.generation eq 9}">
                       <td>일반가정</td>
