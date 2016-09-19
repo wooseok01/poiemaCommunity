@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.poiema.community.action.DetailInformationAction;
 import com.poiema.community.action.FindHelpListAction;
 import com.poiema.community.action.FindListTypeAction;
-import com.poiema.community.action.FindLivingCaseAction;
+import com.poiema.community.action.findHelpListByConsultCase;
 import com.poiema.community.action.LoginAction;
 import com.poiema.community.action.MainDataAction;
 import com.poiema.community.action.SaveHelpListAction;
@@ -239,23 +239,23 @@ public class HomeController {
 		return result;
 	}
 	
-	@RequestMapping(value = "/findLivingCase", method = RequestMethod.GET)
+	@RequestMapping(value = "/findConsultCase", method = RequestMethod.GET)
 	public String findLivingCase(Model model, HttpServletRequest request){
 		
-		return sessionCheck("livingCase", request);
+		return sessionCheck("consultCase", request);
 	}
 	
-	@RequestMapping(value = "/findHelpListByLivingCase", method = RequestMethod.POST)
-	public @ResponseBody JSONArray findHelpListByLivingCase(HttpServletRequest request, 
-			@RequestParam(value = "livingCase", defaultValue = "high") String livingCase){
+	@RequestMapping(value = "/findHelpListByConsultCase", method = RequestMethod.POST)
+	public @ResponseBody JSONArray findHelpListByConsultCase(HttpServletRequest request, 
+			@RequestParam(value = "consultCase", defaultValue = "no") String consultCase){
 		
-		System.out.println(livingCase);
-		FindLivingCaseAction action = new FindLivingCaseAction(helpListDao);
+		System.out.println(consultCase);
+		findHelpListByConsultCase action = new findHelpListByConsultCase(helpListDao);
 		
-		ArrayList<HashMap<Object, Object>> livingCaseList = action.findHelpListByLivingCase(livingCase);
+		ArrayList<HashMap<Object, Object>> consultCaseList = action.findConsultCase(consultCase);
 		
 		JSONArray array = new JSONArray();
-		array = JSONArray.fromObject(livingCaseList);
+		array = JSONArray.fromObject(consultCaseList);
 		System.out.println(array);
 		return array;
 	}

@@ -19,7 +19,7 @@
   <div id="contentDiv">
     <c:if test="${helpList ne null}">
       <input type="text" class="hidden" id="type" value="${helpList.type}">
-      <input type="text" class="hidden" id="livingCase" value="${helpList.livingCase}">  
+      <input type="text" class="hidden" id="consultCase" value="${helpList.consultCase}">  
       <input type="text" class="hidden" id="sex" value="${helpList.sex}">  
       <input type="text" class="hidden" id="house" value="${helpList.house}">  
       <input type="text" class="hidden" id="protection" value="${helpList.protection}">  
@@ -134,11 +134,10 @@
         </fieldset>
         
         <label>
-          생활 구분 : 
-          <select name="livingCase">
-            <option value="high">상</option>
-            <option value="mid">중</option>
-            <option value="low">하</option>
+          상담 구분 : 
+          <select name="consultCase">
+            <option value="yes">상담</option>
+            <option value="no">미상담</option>
           </select>
         </label>
         

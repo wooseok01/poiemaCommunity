@@ -11,9 +11,9 @@
 		<result javaType="string" column="num" property="num"/>
 	</resultMap>
 	
-	<resultMap type="hashmap" id="livingCaseObject">
+	<resultMap type="hashmap" id="consultCaseObject">
 		<result javaType="int" column="seq" property="seq"/>
-		<result javaType="string" column="livingCase" property="livingCase"/>
+		<result javaType="string" column="consultCase" property="consultCase"/>
 		<result javaType="string" column="type" property="type"/>
 		<result javaType="string" column="volunteer" property="volunteer"/>
 		<result javaType="string" column="target" property="target"/>
@@ -29,14 +29,14 @@
 			type, 
 			volunteer, volunteerTel, applicant, applicantTel, 
 			target, targetTel, address, 
-			livingCase, sex, age, startMonth, payMonth,
+			consultCase, sex, age, startMonth, payMonth,
 			pay, house, protection, generation,
 			houseDescription, consultDescription
 		) values(
 			#{type}, 
 			#{volunteer}, #{volunteerTel}, #{applicant}, #{applicantTel}, 
 			#{target}, #{targetTel}, #{address}, 
-			#{livingCase}, #{sex}, #{age}, #{startMonth}, #{payMonth}, 
+			#{consultCase}, #{sex}, #{age}, #{startMonth}, #{payMonth}, 
 			#{pay}, #{house}, #{protection}, #{generation}, 
 			#{houseDescription}, #{consultDescription} 
 		);
@@ -135,7 +135,7 @@
 			type = #{type}, 
 			volunteer = #{volunteer}, volunteerTel = #{volunteerTel}, applicant = #{applicant}, applicantTel = #{applicantTel}, 
 			target = #{target}, targetTel = #{targetTel}, address = #{address}, 
-			livingCase = #{livingCase}, sex = #{sex}, age = #{age}, startMonth = #{startMonth}, payMonth = #{payMonth},
+			consultCase = #{consultCase}, sex = #{sex}, age = #{age}, startMonth = #{startMonth}, payMonth = #{payMonth},
 			pay = #{pay}, house = #{house}, protection = #{protection}, generation = #{generation},
 			houseDescription = #{houseDescription}, consultDescription = #{consultDescription}
 		<where>
@@ -153,12 +153,21 @@
 		</where>
 	</delete>
 	
-	<select id="findHelpListByLivingCase" parameterType="string" resultMap="livingCaseObject">
-		SELECT seq, livingCase, type, volunteer, target, sex, age, address    
+	<select id="findConsultCase" parameterType="string" resultMap="consultCaseObject">
+		SELECT seq, consultCase, type, volunteer, target, sex, age, address
+		FROM helpList
+		<where>
+			consultCase = #{consultCase}
+		</where>
+		ORDER BY type, target;
+	</select>
+	
+	<!-- <select id="findHelpListByLivingCase" parameterType="string" resultMap="livingCaseObject">
+		SELECT seq, consultList, type, volunteer, target, sex, age, address    
 		FROM helpList 
 		<where>
 			livingCase = #{livingCase}
 		</where>
 		ORDER BY type, target
-	</select>
+	</select> -->
 </mapper>

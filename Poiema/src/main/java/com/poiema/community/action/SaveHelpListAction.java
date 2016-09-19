@@ -64,7 +64,7 @@ public class SaveHelpListAction {
 		String targetTel = request.getParameter("targetTel");
 		String address = request.getParameter("address");
 		
-		String livingCase = request.getParameter("livingCase");
+		String consultCase = request.getParameter("consultCase");
 		String sex = request.getParameter("sex");
 		
 		int age = 0;
@@ -98,7 +98,7 @@ public class SaveHelpListAction {
 		}
 		
 		return new HelpList(seq, type, volunteer, volunteerTel, applicant, applicantTel, 
-				target, targetTel, address, livingCase, sex, age, startMonth, payMonth, 
+				target, targetTel, address, consultCase, sex, age, startMonth, payMonth, 
 				pay, house, protection, generation, houseDescription, consultDescription);
 	}
 	

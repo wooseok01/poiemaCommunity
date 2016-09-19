@@ -13,7 +13,7 @@ public class HelpList implements Serializable{
 	private String target;
 	private String targetTel;
 	private String address;
-	private String livingCase;
+	private String consultCase;
 	private String sex;
 	private int age;
 	private String startMonth;
@@ -26,9 +26,9 @@ public class HelpList implements Serializable{
 	private byte[] consultDescription;
 	
 	public HelpList(){}
-	
+
 	public HelpList(int seq, String type, String volunteer, String volunteerTel, String applicant, String applicantTel,
-			String target, String targetTel, String address, String livingCase, String sex, int age, String startMonth,
+			String target, String targetTel, String address, String consultCase, String sex, int age, String startMonth,
 			String payMonth, String pay, String house, String protection, String generation, byte[] houseDescription,
 			byte[] consultDescription) {
 		super();
@@ -41,7 +41,7 @@ public class HelpList implements Serializable{
 		this.target = target;
 		this.targetTel = targetTel;
 		this.address = address;
-		this.livingCase = livingCase;
+		this.consultCase = consultCase;
 		this.sex = sex;
 		this.age = age;
 		this.startMonth = startMonth;
@@ -53,6 +53,7 @@ public class HelpList implements Serializable{
 		this.houseDescription = houseDescription;
 		this.consultDescription = consultDescription;
 	}
+
 
 	public String getPay() {return pay;}
 	public void setPay(String pay) {this.pay = pay;}
@@ -92,9 +93,9 @@ public class HelpList implements Serializable{
 
 	public String getAddress() {return address;}
 	public void setAddress(String address) {this.address = address;}
-
-	public String getLivingCase() {return livingCase;}
-	public void setLivingCase(String livingCase) {this.livingCase = livingCase;}
+	
+	public String getConsultCase() {return consultCase;}
+	public void setConsultCase(String consultCase) {this.consultCase = consultCase;}
 
 	public String getSex() {return sex;}
 	public void setSex(String sex) {this.sex = sex;}
@@ -118,7 +119,7 @@ public class HelpList implements Serializable{
 	public String toString() {
 		return "HelpList [seq=" + seq + ", type=" + type + ", volunteer=" + volunteer + ", volunteerTel=" + volunteerTel
 				+ ", applicant=" + applicant + ", applicantTel=" + applicantTel + ", target=" + target + ", targetTel="
-				+ targetTel + ", address=" + address + ", livingCase=" + livingCase + ", sex=" + sex + ", age=" + age
+				+ targetTel + ", address=" + address + ", consultCase=" + consultCase + ", sex=" + sex + ", age=" + age
 				+ ", startMonth=" + startMonth + ", payMonth=" + payMonth + ", pay=" + pay + ", house=" + house
 				+ ", protection=" + protection + ", generation=" + generation + ", houseDescription=" + houseDescription
 				+ ", consultDescription=" + consultDescription + "]";

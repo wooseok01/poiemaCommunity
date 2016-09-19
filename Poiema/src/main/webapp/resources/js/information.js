@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var type, livingCase, sex, house,
+	var type, consultCase, sex, house,
 		protection, generation;
 	
 	var parameter = window.location.search.substring(1);
@@ -59,7 +59,7 @@ $(document).ready(function(){
 		})
 	}
 	
-	if($('#type').html() != null || $('#type').html() != ''){
+	if($('#type').val() != null || $('#type').val() != ''){
 		type = $('#type').val();
 		
 		switch(type){
@@ -78,22 +78,20 @@ $(document).ready(function(){
 		}
 	}
 	
-	if($('#livingCase').html() != null || $('#livingCase').html() != ''){
-		livingCase = $('#livingCase').html();
-		switch(livingCase){
-			case 'high' : 
-				$('select[name=livingCase]').find('option').eq(0).attr('selected','selected');
+	if($('#consultCase').val() != null || $('#consultCase').val() != ''){
+		consultCase = $('#consultCase').val();
+		console.log(consultCase);
+		switch(consultCase){
+			case 'yes' : 
+				$('select[name=consultCase]').find('option').eq(0).attr('selected','selected');
 				break;
-			case 'mid' : 
-				$('select[name=livingCase]').find('option').eq(1).attr('selected','selected');
-				break;
-			case 'low' :
-				$('select[name=livingCase]').find('option').eq(2).attr('selected','selected');
+			case 'no' : 
+				$('select[name=consultCase]').find('option').eq(1).attr('selected','selected');
 				break;
 		}
 	}
 	
-	if($('#sex').html() != null || $('#sex').html() != ''){
+	if($('#sex').val() != null || $('#sex').val() != ''){
 		sex = $('#sex').val();
 
 		switch(sex){

@@ -116,8 +116,8 @@ public class HelpListDao {
 		sqlSession.getMapper(HelpListDaoInterface.class).deleteHelpList(map);
 	}
 
-	public ArrayList<HashMap<Object, Object>> findHelpListByLivingCase(String livingCase) {
-		return sqlSession.getMapper(HelpListDaoInterface.class).findHelpListByLivingCase(livingCase);
+	public ArrayList<HashMap<Object, Object>> findConsultCase(String consultCase) {
+		return sqlSession.getMapper(HelpListDaoInterface.class).findConsultCase(consultCase);
 	}
 
 	
