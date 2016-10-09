@@ -162,6 +162,15 @@
 		ORDER BY type, target;
 	</select>
 	
+	<select id="getHelpPersonListByGeneration" parameterType="string" resultMap="consultCaseObject">
+		SELECT seq, consultCase, type, volunteer, target, sex, age, address
+		FROM helpList
+		<where>
+			generation = #{generationCase}
+		</where>
+		ORDER BY type, target;
+	</select>
+	
 	<!-- <select id="findHelpListByLivingCase" parameterType="string" resultMap="livingCaseObject">
 		SELECT seq, consultList, type, volunteer, target, sex, age, address    
 		FROM helpList 

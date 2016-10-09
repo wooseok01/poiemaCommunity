@@ -31,6 +31,9 @@
           <a class="li" href="./findConsultCase">상담구분 검색</a>
         </li>
         <li>
+          <a class="li" href="./findGeneration">세대구분 검색</a>
+        </li>
+        <li>
           <a class="li" href="./logout" id="logoutBtn">로그아웃!</a>
         </li>
       </ul>

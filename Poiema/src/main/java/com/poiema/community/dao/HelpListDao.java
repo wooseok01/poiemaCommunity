@@ -120,6 +120,10 @@ public class HelpListDao {
 		return sqlSession.getMapper(HelpListDaoInterface.class).findConsultCase(consultCase);
 	}
 
+	public ArrayList<HashMap<Object, Object>> getHelpPersonListByGeneration(String generationCase) {
+		return sqlSession.getMapper(HelpListDaoInterface.class).getHelpPersonListByGeneration(generationCase);
+	}
+
 	
 	
 }

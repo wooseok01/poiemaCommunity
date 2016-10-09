@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.poiema.community.action.DetailInformationAction;
+import com.poiema.community.action.FindGenerationCase;
 import com.poiema.community.action.FindHelpListAction;
 import com.poiema.community.action.FindListTypeAction;
 import com.poiema.community.action.findHelpListByConsultCase;
@@ -258,6 +259,23 @@ public class HomeController {
 		array = JSONArray.fromObject(consultCaseList);
 		System.out.println(array);
 		return array;
+	}
+	
+	@RequestMapping("/findGeneration")
+	public String findGeneration(Model model, HttpServletRequest request){
+		
+		return sessionCheck("generationCase", request);
+	}
+	
+	@RequestMapping("/findHelpListPersonByGeneration")
+	public @ResponseBody JSONArray findHelpListPersonByGeneration(Model model, 
+			@RequestParam(value = "generationCase", defaultValue = "1")String generationCase){
+		
+		FindGenerationCase action = new FindGenerationCase(helpListDao);
+		
+		ArrayList<HashMap<Object, Object>> generationCaseList = action.getHelpPersonListByGeneration(generationCase);
+		JSONArray jArray = JSONArray.fromObject(generationCaseList);
+		return jArray;
 	}
 	
 	

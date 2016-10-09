@@ -22,6 +22,7 @@ public interface HelpListDaoInterface {
 	void deleteFamilyList(int seq);
 	void updateHelpList(HelpList helpList);
 	void deleteHelpList(HashMap<String, int[]> map);
-	ArrayList<HashMap<Object, Object>> findConsultCase(String consultCase); 
+	ArrayList<HashMap<Object, Object>> findConsultCase(String consultCase);
+	ArrayList<HashMap<Object, Object>> getHelpPersonListByGeneration(String generationCase); 
 
 }
