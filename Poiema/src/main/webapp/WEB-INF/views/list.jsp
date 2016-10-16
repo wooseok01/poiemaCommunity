@@ -100,7 +100,7 @@
                       <td>소년,소녀 가장</td>
                     </c:when>
                     <c:when test="${person.generation eq 8}">
-                      <td>새터민</td>
+                      <td>장애인</td>
                     </c:when>
                     <c:when test="${person.generation eq 9}">
                       <td>일반가정</td>

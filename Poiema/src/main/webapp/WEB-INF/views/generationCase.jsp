@@ -24,7 +24,7 @@
         <option value="5">조손가정</option>
         <option value="6">다문화</option>
         <option value="7">소년,소녀 가장</option>
-        <option value="8">새터민</option>
+        <option value="8">장애인</option>
         <option value="9">일반가정</option>        
       </select>
       <h2>세대구분 검색</h2>
