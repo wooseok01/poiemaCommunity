@@ -40,7 +40,7 @@
             <option value="A">A</option>
             <option value="B">B</option>
             <option value="love">사랑</option>
-            <option value="none">미연결</option>
+            <option value="none">관리대상</option>
           </select>
         </label><br>
         
@@ -206,18 +206,6 @@
             </c:when>
             <c:otherwise>
               <input type="text" name="startMonth" placeholder="ex)2016.03" class="keyPressEvent" tableIndex="9">
-            </c:otherwise>
-          </c:choose>
-        </label>
-        
-        <label>
-          지급월 : 
-          <c:choose>
-            <c:when test="${helpList ne null}">
-              <input type="text" name="startMonth" value='${helpList.payMonth}' class="keyPressEvent" tableIndex="10">
-            </c:when>
-            <c:otherwise>
-              <input type="text" name="payMonth" placeholder="ex)2016.03" class="keyPressEvent" tableIndex="10">
             </c:otherwise>
           </c:choose>
         </label>

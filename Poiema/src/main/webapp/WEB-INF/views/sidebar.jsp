@@ -24,6 +24,7 @@
             <a class="li" href="./findListType?type=A">&nbsp; A유형 명단</a>
             <a class="li" href="./findListType?type=B">&nbsp; B유형 명단</a>
             <a class="li" href="./findListType?type=love">&nbsp; 사랑목장 명단</a>
+            <a class="li" href="./findListType?type=none">&nbsp; 관리대상 명단</a>
             <a class="li" href="./findListType?type=all">&nbsp; 전체 명단</a>
           </div>
         </li>
