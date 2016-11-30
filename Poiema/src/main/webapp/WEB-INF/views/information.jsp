@@ -138,6 +138,7 @@
           <select name="consultCase">
             <option value="yes">상담</option>
             <option value="no">미상담</option>
+            <option value="import">관리대상</option>
           </select>
         </label>
         

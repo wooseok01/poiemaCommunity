@@ -97,6 +97,7 @@ function consultCaseSwitch(livingCase){
 	switch(livingCase){
 	case 'yes' : return '상담';
 	case 'no' : return '미상담';
+	case 'import' : return '관리대상';
 	}
 	return null;
 }

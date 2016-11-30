@@ -88,6 +88,9 @@ $(document).ready(function(){
 			case 'no' : 
 				$('select[name=consultCase]').find('option').eq(1).attr('selected','selected');
 				break;
+			case 'import' : 
+				$('select[name=consultCase]').find('option').eq(2).attr('selected','selected');
+				break;
 		}
 	}
 	

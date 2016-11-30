@@ -19,6 +19,7 @@
       <select id="select">
         <option value="yes">상담</option>
         <option value="no">미상담</option>
+        <option value="import">관리대상</option>
       </select>
       <h2>생활구분 검색</h2>
       <input type="button" class="btn btn-danger" value="명단 삭제" onclick="delBtnClick();">
