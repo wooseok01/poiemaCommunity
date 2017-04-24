@@ -69,15 +69,16 @@ $(document).ready(function(){
 			case 'B' :
 				$('select[name=type]').find('option').eq(1).attr('selected','selected');
 				break;
-			case 'love' :
+			case 'boucher' :
 				$('select[name=type]').find('option').eq(2).attr('selected','selected');
 				break;
-			case 'none' :
+			case 'love' :
 				$('select[name=type]').find('option').eq(3).attr('selected','selected');
 				break;
-			case 'boucher' :
+			case 'none' :
 				$('select[name=type]').find('option').eq(4).attr('selected','selected');
 				break;
+			
 		}
 	}
 	
