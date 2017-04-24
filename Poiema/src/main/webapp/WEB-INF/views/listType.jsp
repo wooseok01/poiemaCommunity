@@ -29,10 +29,13 @@
             <h1 class="printTitle">사랑목장 사랑의 물품 대상자 명단</h1>
           </c:when>
           <c:when test="${type.type eq 'none'}">
-            <h1 class="printTitle">미연결 사랑의 물품 대상자 명단</h1>
+            <h1 class="printTitle">관리대상 사랑의 물품 대상자 명단</h1>
           </c:when>
           <c:when test="${type.type eq 'all'}">
             <h1 class="printTitle">전체 사랑의 물품 대상자 명단</h1>
+          </c:when>
+          <c:when test="${type.type eq 'boucher'}">
+          	<h1 class="printTitle">바우처 사랑의 물품 대상자 명단</h1>
           </c:when>
           <c:otherwise>
             <h1 class="printTitle">${type.type}유형 사랑의 물품 대상자 명단</h1>

@@ -41,6 +41,7 @@
             <option value="B">B</option>
             <option value="love">사랑</option>
             <option value="none">관리대상</option>
+            <option value="boucher">바우처</option>
           </select>
         </label><br>
         

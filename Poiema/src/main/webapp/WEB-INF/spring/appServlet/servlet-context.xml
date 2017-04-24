@@ -32,7 +32,7 @@
 		<beans:property name="password" value="Ss5327128!"/>
 	</beans:bean>
 	
-	<beans:bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
+	<beans:bean id="template" name="template" class="org.springframework.jdbc.core.JdbcTemplate">
 		<beans:property name="dataSource" ref="dataSource"></beans:property>
 	</beans:bean>
 	
@@ -45,16 +45,16 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory"></beans:constructor-arg>
 	</beans:bean>
 	
-	<!-- Dao injection -->
-	<beans:bean name="userListDao" class="com.poiema.community.dao.UserListDao">
+	<!-- dao 설정 -->
+	<beans:bean id="helpListDao" class="com.poiema.community.dao.HelpListDao">
 		<beans:property name="template" ref="template"></beans:property>
+		<beans:property name="sqlSession" ref="sqlSession"></beans:property>
 	</beans:bean>
 	
-	<beans:bean name="helpListDao" class="com.poiema.community.dao.HelpListDao">
+	<beans:bean id="userListDao" class="com.poiema.community.dao.UserListDao">
 		<beans:property name="template" ref="template"></beans:property>
+		<beans:property name="sqlSession" ref="sqlSession"></beans:property>
 	</beans:bean>
-	
-	
 	
 	
 </beans:beans>

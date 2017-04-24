@@ -78,7 +78,7 @@ body > div{
 }
 
 #slideDown{
-    height : 200px;
+    height : auto;
     display : none;
 } 
 
