@@ -96,6 +96,9 @@
                     <c:when test="${person.type eq 'none'}">
                       <td>미연결</td>
                     </c:when>
+                    <c:when test="${person.type eq 'boucher'}">
+                    	<td>바우처</td>
+                    </c:when>
                   </c:choose>
                   <td>${person.volunteer}</td>
                   <td class="target"><b>${person.target}</b></td>

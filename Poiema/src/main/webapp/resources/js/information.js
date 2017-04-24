@@ -75,6 +75,9 @@ $(document).ready(function(){
 			case 'none' :
 				$('select[name=type]').find('option').eq(3).attr('selected','selected');
 				break;
+			case 'boucher' :
+				$('select[name=type]').find('option').eq(4).attr('selected','selected');
+				break;
 		}
 	}
 	
